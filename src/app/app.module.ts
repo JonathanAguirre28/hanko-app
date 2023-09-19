@@ -10,7 +10,6 @@ import { LoginComponent } from './auth/pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent,
     LoginComponent
   ],
   imports: [
