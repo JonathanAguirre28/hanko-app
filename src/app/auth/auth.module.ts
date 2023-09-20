@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './pages/register/register.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,6 +14,7 @@ import { RegisterComponent } from './pages/register/register.component';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
   ],
    exports: [
    AuthComponent
