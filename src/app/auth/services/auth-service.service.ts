@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { User } from '../interfaces/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  apiUrl: string = environment.apiUrl;
+
+  constructor(private http: HttpClient) {}
+
+  postLogin(user: User) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    console.log(user, 'user');
+    return this.http.post(`${this.apiUrl}/login`, user, { headers });
+  }
+}

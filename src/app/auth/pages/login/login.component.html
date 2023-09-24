@@ -40,7 +40,14 @@
     </form>
 
     <div class="login__div-button">
-      <button type="submit" mat-button color="primary">Ingresar</button>
+      <button
+        (click)="onSubmit()"
+        [disabled]="loginForm.invalid"
+        mat-button
+        color="primary"
+      >
+        Ingresar
+      </button>
     </div>
   </div>
 </section>

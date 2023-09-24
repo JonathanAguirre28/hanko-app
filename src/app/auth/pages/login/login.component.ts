@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,27 +19,27 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // El formulario es válido, aquí puedes realizar la lógica de inicio de sesión
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
+      const user = {
+        email: email || '',
+        password: password || '',
+      };
 
-      // Realiza la lógica de inicio de sesión, por ejemplo, enviando los datos al servidor
-      // Puedes utilizar un servicio para manejar la autenticación
-      // Por ejemplo, si estás utilizando HttpClient:
-      // this.authService.login(email, password).subscribe(
-      //   (response) => {
-      //     // Manejar la respuesta exitosa
-      //   },
-      //   (error) => {
-      //     // Manejar errores, por ejemplo, mostrar un mensaje de error
-      //   }
-      // );
+      this.authService.postLogin(user).subscribe(
+        (response) => {
+          console.log(response, 'inicio de sesion exitoso');
+        },
+        (error) => {
+          console.log(error, 'error al iniciar sesion');
+        }
+      );
     } else {
-      this.loginForm.get('email')?.setErrors;
+      console.log('formulario invalido');
     }
   }
 
