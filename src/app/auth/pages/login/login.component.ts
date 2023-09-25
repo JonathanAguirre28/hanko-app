@@ -1,10 +1,49 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  hide = true;
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10),
+    ]),
+  });
 
+  constructor(private router: Router, private authService: AuthService) {}
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const email = this.loginForm.get('email')?.value;
+      const password = this.loginForm.get('password')?.value;
+      const user = {
+        email: email || '',
+        password: password || '',
+      };
+
+      this.authService.postLogin(user).subscribe(
+        (response) => {
+          console.log(response, 'inicio de sesion exitoso');
+        },
+        (error) => {
+          console.log(error, 'error al iniciar sesion');
+        }
+      );
+    } else {
+      console.log('formulario invalido');
+    }
+  }
+
+  redirectRegister() {
+    this.router.navigate(['register']);
+  }
 }

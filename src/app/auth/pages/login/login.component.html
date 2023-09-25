@@ -1,22 +1,53 @@
-<h1 class="login__h1">Iniciar sesion</h1>
-<div class="login__div">
-  <div class="login__div-2">
-    <mat-form-field class="login__div-2-mat">
-      <mat-label>Email</mat-label>
-      <input matInput />
-    </mat-form-field>
+<section class="login">
+  <div class="login__div">
+    <h2>Iniciar sesion</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+          >El email es requerido</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
+          >El email no es válido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          id="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+          >La contraseña es requerida</mat-error
+        >
+      </mat-form-field>
+
+      <p (click)="redirectRegister()" class="login__div-registrate">
+        Registrate
+      </p>
+    </form>
+
+    <div class="login__div-button">
+      <button
+        (click)="onSubmit()"
+        [disabled]="loginForm.invalid"
+        mat-button
+        color="primary"
+      >
+        Ingresar
+      </button>
+    </div>
   </div>
-
-  <div>
-    <mat-form-field>
-      <mat-label>Contraseña</mat-label>
-      <input type="password" matInput />
-    </mat-form-field>
-  </div>
-  <div class="div__button">
-    <button routerLink="dashboard" color="primary">Ingresar</button>
-  </div>
-</div>
-
-
-
+</section>

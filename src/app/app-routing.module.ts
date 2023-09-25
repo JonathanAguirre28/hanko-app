@@ -7,22 +7,12 @@ import { RegisterComponent } from './auth/pages/register/register.component';
 
 const routes: Routes = [
   {
-    path: 'auth',
-    component: AuthComponent,
-    children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
-      {
-        path: '**',
-        redirectTo: 'login'
-      }
-    ]
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'dashboard',
@@ -31,12 +21,12 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/auth'
-  }
+    redirectTo: 'login',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
