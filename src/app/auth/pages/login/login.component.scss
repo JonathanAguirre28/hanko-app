@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: green;
+  background-image: url(../../../../img/img2.webp);
   height: 100%;
   justify-content: center;
 
   .login__div {
-    background-color: rgb(187, 187, 187);
+    background-color: rgba(187, 187, 187, 0.896);
     display: flex;
     color: black;
     flex-direction: column;
@@ -41,5 +41,8 @@
     }
 
   }
+
+
+
 
 }
