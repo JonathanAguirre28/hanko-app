@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<section>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <button class="right">
+                <mat-icon class="side" (click)="sidenav.toggle()">menu</mat-icon>
+            </button>
+            <h1>Hanko</h1>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenavv">
+        <mat-sidenav #sidenav mode="side">
+            <mat-nav-list class="menu">
+                <a mat-list-item>User</a>
+                <a mat-list-item>Account</a>
+                <a mat-list-item>About Us</a>
+                <a mat-list-item>Help</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div style="height: 88vh;">
+                <router-outlet>
+                </router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</section>
