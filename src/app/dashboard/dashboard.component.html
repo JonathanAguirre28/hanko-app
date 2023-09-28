@@ -10,10 +10,11 @@
     <mat-sidenav-container class="sidenavv">
         <mat-sidenav #sidenav mode="side">
             <mat-nav-list class="menu">
-                <a mat-list-item>User</a>
-                <a mat-list-item>Account</a>
-                <a mat-list-item>About Us</a>
-                <a mat-list-item>Help</a>
+                <a mat-list-item routerLink="dashboard">Home</a>
+                <a mat-list-item routerLink="users">Usuarios</a>
+                <a mat-list-item routerLink="clients">Clientes</a>
+                <a mat-list-item routerLink="drinks">Bebidas</a>
+                <a mat-list-item routerLink="finance">Finanzas</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>

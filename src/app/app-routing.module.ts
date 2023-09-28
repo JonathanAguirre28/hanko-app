@@ -15,14 +15,14 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'dashboard',
+    path: 'dashboard', // La ruta base para tu módulo de dashboard
     component: DashboardComponent,
-    // loadChildren: () => import("./dashboard/dashboard.module").then((typescriptModule) => typescriptModule.DashboardModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
   },
-  {
-    path: '**',
-    redirectTo: 'login',
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'login',
+  // },
 ];
 
 @NgModule({
