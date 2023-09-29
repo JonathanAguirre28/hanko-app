@@ -2,42 +2,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(../../../../img/img2.webp);
+  background-image: url('../../../assets/img/backgraund-login.webp');
   height: 100%;
   justify-content: center;
-    
-  background-size: cover; 
-  background-repeat: no-repeat; 
+
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 
 
-  
-.dog {
-  width: 100px;
-  height: 100px;
-  background-color: #0f1012; 
-  border: 2px solid #00ff37; 
-  border-radius: 50%; 
-  padding: 50px;
-  text-align: center;
-  font-size: 24px;
-  box-shadow: 0 0 20px rgba(102, 237, 129, 0.933); 
-  float: left;
-  margin: 1%;
-  display: flex;
-  
- 
-}
+
+  .dog {
+    width: 100px;
+    height: 100px;
+    background-color: #0f1012;
+    border: 2px solid #00ff37;
+    border-radius: 50%;
+    padding: 50px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 0 20px rgba(102, 237, 129, 0.933);
+    float: left;
+    margin: 1%;
+    display: flex;
 
 
-.dog {
- 
-  background-image: url("../../../../img/316815739_205937208465617_7205712516438900157_n-removebg-preview\ \(2\).png");
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-position: center; 
-  
-}
+  }
+
+
+  .dog {
+
+    background-image: url('../../../assets/img/logo-login.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
 
 
   .login__div {
@@ -75,8 +75,5 @@
     }
 
   }
-
-
-
 
 }

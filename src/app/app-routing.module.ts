@@ -1,28 +1,21 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/pages/login/login.component';
-import { RegisterComponent } from './auth/pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
   },
   {
     path: 'dashboard', // La ruta base para tu módulo de dashboard
     component: DashboardComponent,
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'login',
-  // },
 ];
 
 @NgModule({

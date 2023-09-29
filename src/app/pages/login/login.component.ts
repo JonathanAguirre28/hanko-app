@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth-service.service';
+import { LoginService } from './login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +19,10 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private loginService: LoginService) {}
 
   onSubmit() {
+    this.router.navigate(['dashboard']);
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
@@ -30,9 +31,10 @@ export class LoginComponent {
         password: password || '',
       };
 
-      this.authService.postLogin(user).subscribe(
+      this.loginService.postLogin(user).subscribe(
         (response) => {
           console.log(response, 'inicio de sesion exitoso');
+          this.router.navigate(['register']);
         },
         (error) => {
           console.log(error, 'error al iniciar sesion');
@@ -41,9 +43,5 @@ export class LoginComponent {
     } else {
       console.log('formulario invalido');
     }
-  }
-
-  redirectRegister() {
-    this.router.navigate(['register']);
   }
 }
