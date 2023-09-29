@@ -11,6 +11,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
+import { ExercisesComponent } from './pages/exercises/exercises.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FinanceComponent } from './pages/finance/finance.component';
     ClientsComponent,
     DrinksComponent,
     FinanceComponent,
+    ExercisesComponent,
   ],
   imports: [
     CommonModule,

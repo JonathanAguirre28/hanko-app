@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UsersComponent } from './pages/dashboard/pages/users/users.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,9 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'dashboard', // La ruta base para tu módulo de dashboard
+    path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [],
     loadChildren: () =>
       import('./pages/dashboard/dashboard.module').then(
         (m) => m.DashboardModule

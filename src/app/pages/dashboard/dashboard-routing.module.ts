@@ -4,25 +4,36 @@ import { UsersComponent } from './pages/users/users.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
-        path: 'users',
-        component: UsersComponent,
-      },
-      {
-        path: '/clients',
-        component: ClientsComponent,
-      },
-      {
-        path: 'drinks',
-        component: DrinksComponent,
-      },
-      {
-        path: 'finance',
-        component: FinanceComponent,
+        path: '',
+        component: DashboardComponent,
+        children: [
+          {
+            path: 'usuarios',
+            component: UsersComponent,
+          },
+          {
+            path: 'clientes',
+            component: ClientsComponent,
+          },
+          {
+            path: 'ejercicios',
+            component: ClientsComponent,
+          },
+          {
+            path: 'bebidas',
+            component: DrinksComponent,
+          },
+          {
+            path: 'finanzas',
+            component: FinanceComponent,
+          },
+        ],
       },
     ]),
   ],
