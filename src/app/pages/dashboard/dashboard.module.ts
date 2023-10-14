@@ -12,6 +12,7 @@ import { ClientsComponent } from './pages/clients/clients.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
 import { ExercisesComponent } from './pages/exercises/exercises.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ExercisesComponent } from './pages/exercises/exercises.component';
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    DashboardRoutingModule,
   ],
-  exports: [DashboardComponent],
+  exports: [DashboardComponent,ClientsComponent,ExercisesComponent,UsersComponent],
 })
 export class DashboardModule {}

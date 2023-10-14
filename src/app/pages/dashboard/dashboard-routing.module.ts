@@ -5,6 +5,7 @@ import { ClientsComponent } from './pages/clients/clients.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
 import { DashboardComponent } from './dashboard.component';
+import { ExercisesComponent } from './pages/exercises/exercises.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { DashboardComponent } from './dashboard.component';
           },
           {
             path: 'ejercicios',
-            component: ClientsComponent,
+            component: ExercisesComponent,
           },
           {
             path: 'bebidas',

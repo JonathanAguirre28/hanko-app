@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     MatButtonModule,
     MatToolbarModule,
     SharedModule,
+    DashboardModule,
   ],
   bootstrap: [AppComponent],
 })
