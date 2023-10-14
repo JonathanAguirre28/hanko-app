@@ -14,6 +14,7 @@ import { FinanceComponent } from './pages/finance/finance.component';
 import { ExercisesComponent } from './pages/exercises/exercises.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
