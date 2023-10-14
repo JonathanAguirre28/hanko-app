@@ -29,10 +29,6 @@ import { ExercisesComponent } from './pages/exercises/exercises.component';
         path: 'finanzas',
         component: FinanceComponent,
       },
-      {
-        path: '**',
-        component: UsersComponent,
-      },
     ]),
   ],
   exports: [RouterModule],
