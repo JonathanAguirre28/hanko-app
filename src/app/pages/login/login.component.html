@@ -1,0 +1,44 @@
+<section class="login">
+  <div class="dog"></div>
+  <br />
+  <div class="login__div">
+    <h2>Iniciar sesion</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+          >El email es requerido</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')"
+          >El email no es válido</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          id="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+          >La contraseña es requerida</mat-error
+        >
+      </mat-form-field>
+    </form>
+
+    <div class="login__div-button">
+      <button (click)="onSubmit()" mat-button color="primary">Ingresar</button>
+    </div>
+  </div>
+</section>
