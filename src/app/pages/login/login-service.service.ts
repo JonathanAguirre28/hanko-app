@@ -13,8 +13,6 @@ export class LoginService {
 
   postLogin(user: User) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-    console.log(user, 'user');
-    return this.http.post(`${this.apiUrl}/login`, user, { headers });
+    return this.http.post(`${this.apiUrl}/users`, user, { headers });
   }
 }

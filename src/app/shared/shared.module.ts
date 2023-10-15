@@ -14,13 +14,14 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   exports: [
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
