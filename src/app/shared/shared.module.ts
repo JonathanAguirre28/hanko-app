@@ -15,9 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoadingComponent } from './component/loading/loading.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [LoadingComponent],
   imports: [CommonModule],
   exports: [
     MatFormFieldModule,
