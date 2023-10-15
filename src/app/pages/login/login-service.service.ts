@@ -27,7 +27,7 @@ export class LoginService {
     this.loggedIn = value;
   }
 
-  setLogout(value: boolean) {
-    this.loggedIn = value;
+  setLogout() {
+    this.loggedIn = false;
   }
 }

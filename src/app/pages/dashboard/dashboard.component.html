@@ -17,6 +17,9 @@
         <a mat-list-item routerLink="/dashboard/bebidas">Bebidas</a>
         <a mat-list-item routerLink="/dashboard/finanzas">Finanzas</a>
       </mat-nav-list>
+      <button (click)="logout()" mat-raised-button color="primary">
+        Cerrar sesión
+      </button>
     </mat-sidenav>
     <mat-sidenav-content>
       <div style="min-height: 90vh">
