@@ -12,10 +12,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingComponent } from './component/loading/loading.component';
+import { LoadingService } from './component/loading/service/loading.service';
+import { LoadingInterceptor } from '../interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [LoadingComponent],
@@ -39,6 +41,12 @@ import { LoadingComponent } from './component/loading/loading.component';
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { appearance: 'outline' },
+    },
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
     },
   ],
 })

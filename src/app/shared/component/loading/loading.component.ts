@@ -11,6 +11,7 @@ export class LoadingComponent implements OnInit {
 
   constructor(private loadingService: LoadingService) {
     this.loadingService.isLoading.subscribe((isLoading: boolean) => {
+      console.log('isLoading', isLoading);
       this.isLoading = isLoading;
     });
   }

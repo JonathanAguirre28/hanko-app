@@ -12,28 +12,54 @@
   </div>
   <div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!-- Name Column -->
-      <ng-container matColumnDef="titulo">
-        <th mat-header-cell *matHeaderCellDef>titulo</th>
+      <ng-container matColumnDef="rutina">
+        <th mat-header-cell *matHeaderCellDef>Rutina</th>
         <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
       </ng-container>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef>No.</th>
-        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngFor="let ejercicio of element.ejercicios">
+            {{ ejercicio.ejercicioName }}
+          </div>
+        </td>
       </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef>Weight</th>
-        <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngFor="let ejercicio of element.ejercicios">
+            {{ ejercicio.tipo }}
+          </div>
+        </td>
       </ng-container>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef>Symbol</th>
-        <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      <ng-container matColumnDef="series">
+        <th mat-header-cell *matHeaderCellDef>Series</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngFor="let ejercicio of element.ejercicios">
+            {{ ejercicio.series }}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="repeticiones">
+        <th mat-header-cell *matHeaderCellDef>Repeticiones</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngFor="let ejercicio of element.repeticiones">
+            {{ ejercicio.tipo }}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngFor="let ejercicio of element.ejercicios">
+            {{ ejercicio.descripcion }}
+          </div>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
