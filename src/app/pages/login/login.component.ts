@@ -40,6 +40,7 @@ export class LoginComponent {
 
       this.loginService.postLogin(user).subscribe(
         () => {
+          this.loginService.setLoggedIn(true);
           this.router.navigate(['dashboard']);
         },
         (e) => {
