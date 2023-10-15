@@ -5,6 +5,7 @@ import { ClientsComponent } from './pages/clients/clients.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
 import { ExercisesComponent } from './pages/exercises/exercises.component';
+import { RoutinesComponent } from './pages/routines/routines/routines.component';
 
 @NgModule({
   imports: [
@@ -30,8 +31,8 @@ import { ExercisesComponent } from './pages/exercises/exercises.component';
         component: FinanceComponent,
       },
       {
-        path: '**',
-        component: UsersComponent,
+        path: 'rutinas',
+        component: RoutinesComponent,
       },
     ]),
   ],

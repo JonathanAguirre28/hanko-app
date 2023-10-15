@@ -1,8 +1,8 @@
 <section class="login">
-  <div class="dog"></div>
+  <div class="login-logo"></div>
   <br />
   <div class="login__div">
-    <h2>Iniciar sesion</h2>
+    <h2 class="exerciseTitle">Iniciar sesion</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <mat-label>Email</mat-label>
@@ -38,7 +38,14 @@
     </form>
 
     <div class="login__div-button">
-      <button (click)="onSubmit()" mat-button color="primary">Ingresar</button>
+      <button
+        (click)="onSubmit()"
+        [disabled]="loginForm.invalid"
+        mat-button
+        color="primary"
+      >
+        Ingresar
+      </button>
     </div>
   </div>
 </section>

@@ -1,0 +1,6 @@
+{
+  "/rutina": {
+    "target": "https://hanko-api.rj.r.appspot.com",
+    "secure": false
+  }
+}

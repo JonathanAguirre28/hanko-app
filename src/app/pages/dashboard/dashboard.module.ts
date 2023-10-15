@@ -13,6 +13,9 @@ import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
 import { ExercisesComponent } from './pages/exercises/exercises.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { RoutinesComponent } from './pages/routines/routines/routines.component';
+import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DrinksComponent,
     FinanceComponent,
     ExercisesComponent,
+    RoutinesComponent,
+    AddExerciseComponent,
   ],
   imports: [
     CommonModule,
