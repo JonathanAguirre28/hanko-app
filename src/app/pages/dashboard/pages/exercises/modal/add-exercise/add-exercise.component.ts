@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExercisesService } from '../../services/exercises.service';
 import { CongratsComponent } from '../congrats/congrats/congrats.component';
@@ -9,8 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './add-exercise.component.html',
   styleUrls: ['./add-exercise.component.scss'],
 })
-
-export class AddExerciseComponent {
+export class AddExerciseComponent implements OnInit {
   exerciseForm = new FormGroup({
     EjercioName: new FormControl('', [Validators.required]),
     Series: new FormControl('', [
@@ -28,10 +27,15 @@ export class AddExerciseComponent {
   constructor(
     private exercisesService: ExercisesService,
     public dialog: MatDialog
-  ) { }
+  ) {}
+
+  ngOnInit(): void {
+    this.getCatalogRutines();
+  }
+
+  getCatalogRutines(): void {}
 
   onSubmit() {
-    console.log(this.exerciseForm)
     if (this.exerciseForm.valid) {
       const EjercioName = this.exerciseForm.get('EjercioName')?.value;
       const Series = this.exerciseForm.get('Series')?.value;
@@ -39,24 +43,21 @@ export class AddExerciseComponent {
       const Descripcion = this.exerciseForm.get('Descripcion')?.value;
       const Tipo = this.exerciseForm.get('Tipo')?.value;
       const ejercicio = {
-        ejercioName: EjercioName || '',
+        ejercicioName: EjercioName || '',
         series: Series || '',
         repeticiones: Repeticiones || '',
         descripcion: Descripcion || '',
         tipo: Tipo || '',
       };
 
-      this.exercisesService.postExercise(ejercicio, "4").subscribe({
-        next: (res) => {
-          console.log(res);
-          const dialog = this.dialog.open(CongratsComponent)
+      this.exercisesService.postExercise(ejercicio, '4').subscribe({
+        next: () => {
+          this.dialog.open(CongratsComponent);
         },
         error: (err) => {
           console.log(err);
-
-        }
-      }
-      );
+        },
+      });
     }
   }
 }
