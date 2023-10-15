@@ -38,15 +38,15 @@ export class LoginComponent {
         password: password || '',
       };
 
-      this.loginService.postLogin(user).subscribe(
-        () => {
+      this.loginService.postLogin(user).subscribe({
+        next: () => {
           this.loginService.setLoggedIn(true);
           this.router.navigate(['dashboard']);
         },
-        (e) => {
+        error: (e) => {
           this.openSnackBar(e.error.message);
-        }
-      );
+        },
+      });
     }
   }
 
