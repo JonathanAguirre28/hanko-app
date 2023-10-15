@@ -12,13 +12,14 @@
       <mat-nav-list class="menu">
         <a mat-list-item routerLink="/dashboard/usuarios">Usuarios</a>
         <a mat-list-item routerLink="/dashboard/clientes">Clientes</a>
+        <a mat-list-item routerLink="/dashboard/rutinas">Rutinas</a>
         <a mat-list-item routerLink="/dashboard/ejercicios">Ejercicios</a>
         <a mat-list-item routerLink="/dashboard/bebidas">Bebidas</a>
         <a mat-list-item routerLink="/dashboard/finanzas">Finanzas</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div style="height: 92.5vh">
+      <div style="min-height: 90vh">
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
