@@ -27,7 +27,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     MatButtonModule,
     MatToolbarModule,
     SharedModule,
-    DashboardModule,
+    DashboardModule
   ],
   bootstrap: [AppComponent],
 })

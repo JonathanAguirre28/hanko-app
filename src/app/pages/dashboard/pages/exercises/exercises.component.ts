@@ -22,7 +22,7 @@ export class ExercisesComponent implements OnInit {
   dataSource: any = new MatTableDataSource<any>();
   constructor(
     private exercisesServices: ExercisesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +34,5 @@ export class ExercisesComponent implements OnInit {
   }
   createExercise() {
     const dialogRef = this.dialog.open(AddExerciseComponent);
-
-    //     dialogRef.afterClosed()
   }
 }
