@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from './services/exercises.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddExerciseComponent } from './modal/add-exercise/add-exercise.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-exercises',
@@ -10,7 +12,10 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ExercisesComponent implements OnInit {
   displayedColumns: string[] = ['position', 'titulo', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA); // Use MatTableDataSource for your data
-  constructor(private exercisesServices: ExercisesService) {}
+  constructor(
+    private exercisesServices: ExercisesService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.exercisesServices.getRutinas().subscribe({
@@ -18,6 +23,11 @@ export class ExercisesComponent implements OnInit {
         console.log('res', res);
       },
     });
+  }
+  createExercise() {
+    const dialogRef = this.dialog.open(AddExerciseComponent);
+
+    //     dialogRef.afterClosed()
   }
 }
 

@@ -1,0 +1,59 @@
+<section class="addExercise">
+  <div class="addDiv">
+    <h2 class="exerciseTitle">Crear Ejercicio</h2>
+    <form [formGroup]="exerciseForm" class="formExercise">
+      <mat-form-field class="inputs">
+        <mat-label>EjercioName</mat-label>
+        <input formControlName="EjercioName" type="EjercioName" matInput />
+        <mat-error *ngIf="exerciseForm.get('EjercioName')?.hasError('required')"
+          >El nombre es requerido</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Series</mat-label>
+        <input formControlName="Series" type="Series" matInput />
+        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('required')"
+          >Series es requerido</mat-error
+        >
+        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('pattern')"
+          >El numero no es valido</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Repeticiones</mat-label>
+        <input formControlName="Repeticiones" type="Repeticiones" matInput />
+        <mat-error
+          *ngIf="exerciseForm.get('Repeticiones')?.hasError('required')"
+          >Repeticiones es requerido</mat-error
+        >
+        <mat-error *ngIf="exerciseForm.get('Repeticiones')?.hasError('pattern')"
+          >El numero no es valido</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <input formControlName="Descripcion" type="Descripcion" matInput />
+        <mat-error *ngIf="exerciseForm.get('Descripcion')?.hasError('required')"
+          >Descripcion es requerido</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <input formControlName="Tipo" type="Tipo" matInput />
+        <mat-error *ngIf="exerciseForm.get('Tipo')?.hasError('required')"
+          >Tipo es requerido</mat-error
+        >
+      </mat-form-field>
+    </form>
+
+    <div class="exerciseDivButton">
+      <button [disabled]="exerciseForm.invalid" mat-button color="primary">
+        Ingresar
+      </button>
+    </div>
+  </div>
+</section>

@@ -11,7 +11,7 @@
 
 
 
-  .dog {
+  &-logo {
     width: 100px;
     height: 100px;
     background-color: #0f1012;
@@ -24,22 +24,13 @@
     float: left;
     margin: 1%;
     display: flex;
-
-
-  }
-
-
-  .dog {
-
     background-image: url('../../../assets/img/logo-login.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
   }
 
-
-  .login__div {
+  &__div {
     background-color: rgba(17, 16, 16, 0.896);
     display: flex;
     color: rgb(239, 234, 234);

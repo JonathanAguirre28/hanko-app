@@ -1,0 +1,42 @@
+.addExercise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  background-color: #000000;
+  min-width: 370px;
+
+
+  .addDiv {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+    min-width: 370px;
+  }
+
+  .exerciseTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .formExercise {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .inputs {
+    width: 60%;
+  }
+
+  .exerciseDivButton {
+    color: white;
+    background-color: rgb(217, 219, 217);
+    width: 90%;
+  }
+}
