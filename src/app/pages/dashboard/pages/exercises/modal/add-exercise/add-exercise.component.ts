@@ -80,7 +80,6 @@ export class AddExerciseComponent implements OnInit {
         next: (res: any) => {
           this.openSnackBar(res.message);
           this.dialog.closeAll();
-          this.exercisesService.refreshTable();
         },
         error: (e) => {
           this.openSnackBar(e.error.message);

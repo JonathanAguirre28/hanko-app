@@ -26,17 +26,26 @@ export class ExercisesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getExercises();
+  }
+
+  getExercises(): void {
     this.exercisesServices.getExcercises().subscribe({
       next: (res) => {
         this.dataSource = res;
       },
     });
   }
+
   createExercise() {
-    this.dialog.open(AddExerciseComponent, {
+    const dialog = this.dialog.open(AddExerciseComponent, {
       data: {
         closeModal: () => this.dialog.closeAll(),
       },
+    });
+
+    dialog.afterClosed().subscribe((result) => {
+      this.getExercises();
     });
   }
 }

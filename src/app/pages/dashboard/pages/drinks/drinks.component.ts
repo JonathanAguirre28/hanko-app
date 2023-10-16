@@ -10,7 +10,6 @@ import { AddDrinksComponent } from './modal/add-drinks/add-drinks.component';
   styleUrls: ['./drinks.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-
 export class DrinksComponent implements OnInit {
   displayedColumns: string[] = [
     'nombre',
@@ -21,19 +20,14 @@ export class DrinksComponent implements OnInit {
     'deleteEdit',
   ];
   dataSource: any = new MatTableDataSource<any>();
-  constructor(
-    private drinksService: DrinksService,
-    public dialog: MatDialog,
-  ) {}
-
+  constructor(private drinksService: DrinksService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.drinksService.getBebidas().subscribe({
       next: (res) => {
         this.dataSource = res;
-        console.log(res);
       },
-    })
+    });
   }
   createDrinks() {
     this.dialog.open(AddDrinksComponent, {

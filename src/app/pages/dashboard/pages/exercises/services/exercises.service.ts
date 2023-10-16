@@ -9,7 +9,6 @@ import { User } from 'src/app/pages/login/interfaces/user';
 })
 export class ExercisesService {
   private apiUrl: string = environment.apiUrl;
-  @Output() updateTable = new EventEmitter<string>();
 
   constructor(private http: HttpClient) {}
 
@@ -26,9 +25,5 @@ export class ExercisesService {
 
   getRutinasCatalog() {
     return this.http.get(`${this.apiUrl}/rutina/catalog`);
-  }
-
-  refreshTable() {
-    this.updateTable.emit();
   }
 }

@@ -43,15 +43,13 @@ export class AddDrinksComponent implements OnInit {
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   closeModal(): void {
     this.dialog.closeAll();
   }
 
   onSubmit() {
-    console.log("entro", this.drinksForm);
-    
     if (this.drinksForm.valid) {
       const BebidaName = this.drinksForm.get('BebidaName')?.value;
       const Tipo = this.drinksForm.get('Tipo')?.value;
