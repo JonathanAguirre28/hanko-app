@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -9,6 +9,7 @@ import { User } from 'src/app/pages/login/interfaces/user';
 })
 export class ExercisesService {
   private apiUrl: string = environment.apiUrl;
+  @Output() updateTable = new EventEmitter<string>();
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +24,11 @@ export class ExercisesService {
     return this.http.get(`${this.apiUrl}/ejercicios`);
   }
 
-  getRutinasName() {
+  getRutinasCatalog() {
     return this.http.get(`${this.apiUrl}/rutina/catalog`);
+  }
+
+  refreshTable() {
+    this.updateTable.emit();
   }
 }

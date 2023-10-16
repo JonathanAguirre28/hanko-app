@@ -15,8 +15,6 @@ import { ExercisesComponent } from './pages/exercises/exercises.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { RoutinesComponent } from './pages/routines/routines/routines.component';
 import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
-import { CongratsComponent } from './pages/exercises/modal/congrats/congrats/congrats.component';
-
 
 @NgModule({
   declarations: [
@@ -28,7 +26,6 @@ import { CongratsComponent } from './pages/exercises/modal/congrats/congrats/con
     ExercisesComponent,
     RoutinesComponent,
     AddExerciseComponent,
-    CongratsComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +37,11 @@ import { CongratsComponent } from './pages/exercises/modal/congrats/congrats/con
     MatButtonModule,
     DashboardRoutingModule,
   ],
-  exports: [DashboardComponent,ClientsComponent,ExercisesComponent,UsersComponent],
+  exports: [
+    DashboardComponent,
+    ClientsComponent,
+    ExercisesComponent,
+    UsersComponent,
+  ],
 })
 export class DashboardModule {}

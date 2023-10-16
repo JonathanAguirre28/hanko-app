@@ -45,9 +45,9 @@
         <mat-label>Rutina</mat-label>
         <mat-select formControlName="Id">
           <mat-option
-            *ngFor="let topping of toppingList"
-            [value]="topping.id"
-            >{{ topping.titulo }}</mat-option
+            *ngFor="let exercise of catalogExercises"
+            [value]="exercise.id"
+            >{{ exercise.titulo }}</mat-option
           >
         </mat-select>
       </mat-form-field>

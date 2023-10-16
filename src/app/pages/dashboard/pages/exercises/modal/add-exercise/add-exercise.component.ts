@@ -1,7 +1,13 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExercisesService } from '../../services/exercises.service';
-import { CongratsComponent } from '../congrats/congrats/congrats.component';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -30,7 +36,7 @@ export class AddExerciseComponent implements OnInit {
     Id: new FormControl('', [Validators.required]),
   });
 
-  toppingList: any = [];
+  catalogExercises: any = [];
 
   constructor(
     private exercisesService: ExercisesService,
@@ -41,9 +47,13 @@ export class AddExerciseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.exercisesService.getRutinasName().subscribe({
+    this.getCatalog();
+  }
+
+  getCatalog(): void {
+    this.exercisesService.getRutinasCatalog().subscribe({
       next: (res: any) => {
-        this.toppingList = res;
+        this.catalogExercises = res;
       },
     });
   }
@@ -67,13 +77,17 @@ export class AddExerciseComponent implements OnInit {
       };
 
       this.exercisesService.postExercise(ejercicio, Id).subscribe({
-        next: () => {
-          this.dialog.open(CongratsComponent);
+        next: (res: any) => {
+          this.openSnackBar(res.message);
+          this.dialog.closeAll();
+          this.exercisesService.refreshTable();
         },
         error: (e) => {
           this.openSnackBar(e.error.message);
         },
       });
+    } else {
+      this.exerciseForm.errors;
     }
   }
 
