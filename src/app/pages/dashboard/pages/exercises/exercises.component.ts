@@ -14,30 +14,29 @@ export class ExercisesComponent implements OnInit {
   displayedColumns: string[] = [
     'rutina',
     'nombre',
-    'tipo',
     'series',
     'repeticiones',
     'descripcion',
-    "deleteEdit",
+    'deleteEdit',
   ];
   dataSource: any = new MatTableDataSource<any>();
   constructor(
     private exercisesServices: ExercisesService,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.exercisesServices.getRutinas().subscribe({
+    this.exercisesServices.getExcercises().subscribe({
       next: (res) => {
         this.dataSource = res;
       },
     });
   }
   createExercise() {
-    const dialogRef = this.dialog.open(AddExerciseComponent, {
+    this.dialog.open(AddExerciseComponent, {
       data: {
-        closeModal: () => dialogRef.close()
-      }
+        closeModal: () => this.dialog.closeAll(),
+      },
     });
   }
 }
