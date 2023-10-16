@@ -15,17 +15,20 @@ import { ExercisesComponent } from './pages/exercises/exercises.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { RoutinesComponent } from './pages/routines/routines/routines.component';
 import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
+import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.component';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     UsersComponent,
     ClientsComponent,
-    DrinksComponent,
     FinanceComponent,
     ExercisesComponent,
     RoutinesComponent,
     AddExerciseComponent,
+    DrinksComponent,
+    AddDrinksComponent,
   ],
   imports: [
     CommonModule,
