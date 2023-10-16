@@ -21,4 +21,8 @@ export class ExercisesService {
   getRutinas() {
     return this.http.get(`${this.apiUrl}/rutina`);
   }
+
+  getRutinasName() {
+    return this.http.get(`${this.apiUrl}/rutina/catalog`);
+  }
 }

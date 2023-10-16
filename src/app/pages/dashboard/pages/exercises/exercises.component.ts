@@ -18,6 +18,7 @@ export class ExercisesComponent implements OnInit {
     'series',
     'repeticiones',
     'descripcion',
+    "deleteEdit",
   ];
   dataSource: any = new MatTableDataSource<any>();
   constructor(
@@ -33,6 +34,10 @@ export class ExercisesComponent implements OnInit {
     });
   }
   createExercise() {
-    const dialogRef = this.dialog.open(AddExerciseComponent);
+    const dialogRef = this.dialog.open(AddExerciseComponent, {
+      data: {
+        closeModal: () => dialogRef.close()
+      }
+    });
   }
 }

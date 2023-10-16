@@ -33,6 +33,14 @@
         <input formControlName="Tipo" type="Tipo" matInput />
         <mat-error *ngIf="exerciseForm.get('Tipo')?.hasError('required')">Tipo es requerido</mat-error>
       </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Rutina</mat-label>
+        <mat-select formControlName="Id">
+          <mat-option *ngFor="let topping of toppingList" [value]="topping.id">{{topping.titulo}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
     </form>
 
     <div class="exerciseDivButton">
@@ -40,6 +48,7 @@
       (click)="onSubmit()" [disabled]="exerciseForm.invalid" mat-button color="primary">
         Ingresar
       </button>
+      <button (click)="closeModal()" class="buttonCancel">Cancelar</button>
     </div>
   </div>
 </section>
