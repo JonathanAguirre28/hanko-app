@@ -61,7 +61,6 @@ export class AddExerciseComponent implements OnInit {
   }
 
   setData(): void {
-    console.log(this.data.data);
     if (this.isEdit()) {
       this.exerciseForm
         .get('ejercicioName')

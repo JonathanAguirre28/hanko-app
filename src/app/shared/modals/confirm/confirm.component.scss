@@ -1,0 +1,44 @@
+.modal-confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0 15px 0;
+
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    p {
+      font-size: 14px;
+      color: white;
+      font-weight: 400;
+    }
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+
+      .button {
+        width: 100px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 14px;
+        border: green 1px solid;
+        background-color: transparent;
+        color: green;
+      }
+
+      .button-right {
+        color: white;
+        background-color: green;
+      }
+    }
+  }
+}

@@ -33,4 +33,8 @@ export class ExercisesService {
   getRutinasCatalog() {
     return this.http.get(`${this.apiUrl}/rutina/catalog`);
   }
+
+  deleteExercise(id: string) {
+    return this.http.delete(`${this.apiUrl}/ejercicios/${id}`);
+  }
 }
