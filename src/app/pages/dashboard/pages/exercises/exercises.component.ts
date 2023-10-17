@@ -37,6 +37,7 @@ export class ExercisesComponent implements OnInit {
     this.exercisesServices.getExcercises().subscribe({
       next: (res) => {
         this.dataSource = res;
+        this.dataSource.sort((a: any, b: any) => a.rutinaName.localeCompare(b.rutinaName));
       },
     });
   }
@@ -48,7 +49,7 @@ export class ExercisesComponent implements OnInit {
       },
     });
 
-    dialog.afterClosed().subscribe((result) => {
+    dialog.afterClosed().subscribe(() => {
       this.getExercises();
     });
   }
