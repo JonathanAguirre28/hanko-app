@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddClientsComponent } from './modal/add-clients/add-clients.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-clients',
@@ -7,11 +9,23 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit{
+  constructor ( private matDialog: MatDialog){}
+
+  displayedColumns: string[] = [
+    'position', 
+    'name', 
+    'surname', 
+    'tel'
+  ];
+  dialog: any;
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-  displayedColumns: string[] = ['position', 'name', 'surname', 'tel'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  createClients(): void {
+    this.matDialog.open(AddClientsComponent);
+  }
   
 }
 
@@ -28,3 +42,5 @@ export interface PeriodicElement {
   surname: string;
   tel: number;
 }
+
+

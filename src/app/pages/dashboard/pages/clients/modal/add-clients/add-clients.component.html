@@ -1,6 +1,43 @@
-<section class="addClients">
-    <div class="addClients__Div">
-        <h2 class="addClients__title">Crear Clientes</h2>
+<section mat-dialog-content class="addClients">
+  <div class="addClients__Div">
+    <h2 class="addClients__title">Crear Clientes</h2>
+    <form [formGroup]="clientsForm" action="" class="addClients__form">
+      <div class="addClients__matForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="name" type="text" name="name" class="addClients__input">
+          <mat-error *ngIf="nameControl.invalid && nameControl.hasError('required')">
+            El nombre es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
 
+      <div class="addClients__matForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input formControlName="surname" matInput type="text" name="surname" class="addClients__input">
+          <mat-error *ngIf="surnameControl.invalid && surnameControl.hasError('required')">
+            El apellido es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="addClients__matForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Telefono</mat-label>
+          <input formControlName="number" matInput type="number" name="number" class="addClients__input">
+          <mat-error *ngIf="numberControl.invalid && numberControl.hasError('required')">
+            El telefono es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    </form>
+    </div>
+
+    <div class="addClients__button">
+      <button mat-button color="primary" class="addClients__button-content">
+        Ingresar Cliente
+      </button>
     </div>
 </section>
