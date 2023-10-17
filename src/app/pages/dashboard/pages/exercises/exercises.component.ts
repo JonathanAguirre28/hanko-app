@@ -1,10 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ExercisesService } from './services/exercises.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddExerciseComponent } from './modal/add-exercise/add-exercise.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from 'src/app/shared/modals/confirm/confirm.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-exercises',
@@ -22,22 +25,46 @@ export class ExercisesComponent implements OnInit {
     'deleteEdit',
   ];
   dialogRef: any;
-  dataSource: any = new MatTableDataSource<any>();
+  dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>();
+
+
   constructor(
     private exercisesServices: ExercisesService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
+    private _snackBar: MatSnackBar
   ) {}
 
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator; // Set the paginator initially
+    this.dataSource.sort = this.sort;
+    this.paginator.pageSize = 5; // You can set the initial page size here if needed
     this.getExercises();
   }
 
+
   getExercises(): void {
     this.exercisesServices.getExcercises().subscribe({
-      next: (res) => {
-        this.dataSource = res;
-        this.dataSource.sort((a: any, b: any) => a.rutinaName.localeCompare(b.rutinaName));
+      next: (res: any) => {
+        if (Array.isArray(res)) {
+          this.dataSource = new MatTableDataSource<any>(res);
+        } else {
+          // If the data is not an array, convert it to an array of objects
+          this.dataSource = new MatTableDataSource<any>([res]);
+        }
+        this.dataSource.paginator = this.paginator; // Set the paginator after loading data
       },
     });
   }
@@ -49,7 +76,7 @@ export class ExercisesComponent implements OnInit {
       },
     });
 
-    dialog.afterClosed().subscribe(() => {
+    dialog.afterClosed().subscribe((result) => {
       this.getExercises();
     });
   }
@@ -71,7 +98,7 @@ export class ExercisesComponent implements OnInit {
     this.dialogRef = this.dialog.open(ConfirmComponent, {
       width: '350px',
       data: {
-        message: '¿Esta seguro que desea eliminar este ejercicio?',
+        message: '¿Esta seguro que desea eliminar esta bebida?',
         button1Text: 'Cancelar',
         button2Text: 'Aceptar',
         button1Action: () => {

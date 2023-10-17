@@ -16,6 +16,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { RoutinesComponent } from './pages/routines/routines/routines.component';
 import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
 import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.c
     MatListModule,
     MatButtonModule,
     DashboardRoutingModule,
+    MatPaginatorModule,
   ],
   exports: [
     DashboardComponent,
