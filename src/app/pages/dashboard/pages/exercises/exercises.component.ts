@@ -48,4 +48,18 @@ export class ExercisesComponent implements OnInit {
       this.getExercises();
     });
   }
+
+  editExercise(data: any) {
+    console.log(data);
+    const dialog = this.dialog.open(AddExerciseComponent, {
+      data: {
+        data: data,
+        closeModal: () => this.dialog.closeAll(),
+      },
+    });
+
+    dialog.afterClosed().subscribe((result) => {
+      this.getExercises();
+    });
+  }
 }

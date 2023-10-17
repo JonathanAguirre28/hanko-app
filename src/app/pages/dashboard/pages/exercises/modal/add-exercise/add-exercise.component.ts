@@ -23,17 +23,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddExerciseComponent implements OnInit {
   exerciseForm = new FormGroup({
-    EjercioName: new FormControl('', [Validators.required]),
-    Series: new FormControl('', [
+    ejercicioName: new FormControl('', [Validators.required]),
+    series: new FormControl('', [
       Validators.required,
       Validators.pattern(/^-?(0|[1-9]\d*)?$/),
     ]),
-    Repeticiones: new FormControl('', [
+    repeticiones: new FormControl('', [
       Validators.required,
       Validators.pattern(/^-?(0|[1-9]\d*)?$/),
     ]),
-    Descripcion: new FormControl('', [Validators.required]),
-    Id: new FormControl('', [Validators.required]),
+    descripcion: new FormControl('', [Validators.required]),
+    rutinaName: new FormControl('', [Validators.required]),
   });
 
   catalogExercises: any = [];
@@ -48,12 +48,36 @@ export class AddExerciseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCatalog();
+    this.isEdit();
+  }
+
+  isEdit(): void {
+    if (this.data.data) {
+      this.exerciseForm
+        .get('ejercicioName')
+        ?.setValue(this.data.data.ejercicioName);
+      this.exerciseForm.get('series')?.setValue(this.data.data.series);
+      this.exerciseForm
+        .get('repeticiones')
+        ?.setValue(this.data.data.repeticiones);
+      this.exerciseForm
+        .get('descripcion')
+        ?.setValue(this.data.data.descripcion);
+    }
   }
 
   getCatalog(): void {
     this.exercisesService.getRutinasCatalog().subscribe({
       next: (res: any) => {
         this.catalogExercises = res;
+        if (this.data.data.rutinaName) {
+          res.find((item: any) => {
+            if (item.titulo === this.data.data.rutinaName) {
+              console.log(item.id);
+              this.exerciseForm.get('rutinaName')?.setValue(item.id);
+            }
+          });
+        }
       },
     });
   }
@@ -64,19 +88,19 @@ export class AddExerciseComponent implements OnInit {
 
   onSubmit() {
     if (this.exerciseForm.valid) {
-      const EjercioName = this.exerciseForm.get('EjercioName')?.value;
-      const Series = this.exerciseForm.get('Series')?.value;
-      const Repeticiones = this.exerciseForm.get('Repeticiones')?.value;
-      const Descripcion = this.exerciseForm.get('Descripcion')?.value;
-      const Id = this.exerciseForm.get('Id')?.value || '';
+      const ejercioName = this.exerciseForm.get('ejercicioName')?.value;
+      const series = this.exerciseForm.get('series')?.value;
+      const repeticiones = this.exerciseForm.get('repeticiones')?.value;
+      const descripcion = this.exerciseForm.get('descripcion')?.value;
+      const id = this.exerciseForm.get('rutinaName')?.value || '';
       const ejercicio = {
-        ejercicioName: EjercioName || '',
-        series: Series || '',
-        repeticiones: Repeticiones || '',
-        descripcion: Descripcion || '',
+        ejercicioName: ejercioName || '',
+        series: series || '',
+        repeticiones: repeticiones || '',
+        descripcion: descripcion || '',
       };
 
-      this.exercisesService.postExercise(ejercicio, Id).subscribe({
+      this.exercisesService.postExercise(ejercicio, id).subscribe({
         next: (res: any) => {
           this.openSnackBar(res.message);
           this.dialog.closeAll();

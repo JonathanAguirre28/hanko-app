@@ -4,46 +4,46 @@
     <form [formGroup]="exerciseForm" class="formExercise">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input formControlName="EjercioName" type="EjercioName" matInput />
-        <mat-error *ngIf="exerciseForm.get('EjercioName')?.hasError('required')"
+        <input formControlName="ejercicioName" matInput />
+        <mat-error *ngIf="exerciseForm.get('ejercioName')?.hasError('required')"
           >El nombre es requerido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Series</mat-label>
-        <input formControlName="Series" type="Series" matInput />
-        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('required')"
+        <input formControlName="series" matInput />
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('required')"
           >Series es requerido</mat-error
         >
-        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('pattern')"
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('pattern')"
           >El numero no es valido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Repeticiones</mat-label>
-        <input formControlName="Repeticiones" type="Repeticiones" matInput />
+        <input formControlName="repeticiones" matInput />
         <mat-error
-          *ngIf="exerciseForm.get('Repeticiones')?.hasError('required')"
+          *ngIf="exerciseForm.get('repeticiones')?.hasError('required')"
           >Repeticiones es requerido</mat-error
         >
-        <mat-error *ngIf="exerciseForm.get('Repeticiones')?.hasError('pattern')"
+        <mat-error *ngIf="exerciseForm.get('repeticiones')?.hasError('pattern')"
           >El numero no es valido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
-        <input formControlName="Descripcion" type="Descripcion" matInput />
-        <mat-error *ngIf="exerciseForm.get('Descripcion')?.hasError('required')"
+        <input formControlName="descripcion" matInput />
+        <mat-error *ngIf="exerciseForm.get('descripcion')?.hasError('required')"
           >Descripcion es requerido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Rutina</mat-label>
-        <mat-select formControlName="Id">
+        <mat-select formControlName="rutinaName">
           <mat-option
             *ngFor="let exercise of catalogExercises"
             [value]="exercise.id"
