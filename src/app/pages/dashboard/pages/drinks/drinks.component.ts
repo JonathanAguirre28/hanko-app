@@ -42,12 +42,12 @@ export class DrinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator; // Set the paginator initially
-    this.dataSource.sort = this.sort;
-    this.paginator.pageSize = 5; // You can set the initial page size here if needed
     this.drinksService.getBebidas().subscribe({
       next: (res: any) => {
         this.dataSource = new MatTableDataSource<any>(res);
+        this.dataSource.paginator = this.paginator; // Set the paginator initially
+        this.dataSource.sort = this.sort;
+        this.paginator.pageSize = 5; // You can set the initial page size here if needed
       },
     });
   }
