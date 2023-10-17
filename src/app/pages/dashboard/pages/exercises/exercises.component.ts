@@ -50,7 +50,6 @@ export class ExercisesComponent implements OnInit {
   }
 
   editExercise(data: any) {
-    console.log(data);
     const dialog = this.dialog.open(AddExerciseComponent, {
       data: {
         data: data,
@@ -61,5 +60,9 @@ export class ExercisesComponent implements OnInit {
     dialog.afterClosed().subscribe((result) => {
       this.getExercises();
     });
+  }
+
+  deleteExercise(data: any) {
+    console.log('delete exercise', data);
   }
 }

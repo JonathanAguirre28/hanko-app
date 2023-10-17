@@ -1,6 +1,11 @@
 <section class="addExercise">
   <div class="addDiv">
-    <h2 class="exerciseTitle">Crear Ejercicio</h2>
+    <h2 class="exerciseTitle" *ngIf="data.data; else addExercise">
+      Editar ejercicio
+    </h2>
+    <ng-template #addExercise>
+      <h2 class="exerciseTitle">Agregar ejercicio</h2>
+    </ng-template>
     <form [formGroup]="exerciseForm" class="formExercise">
       <mat-form-field>
         <mat-label>Nombre</mat-label>

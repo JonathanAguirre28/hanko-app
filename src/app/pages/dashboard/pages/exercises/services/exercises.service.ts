@@ -19,6 +19,13 @@ export class ExercisesService {
     });
   }
 
+  patchExercise(ejercicio: any, id: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.patch(`${this.apiUrl}/ejercicios/${id}`, ejercicio, {
+      headers,
+    });
+  }
+
   getExcercises() {
     return this.http.get(`${this.apiUrl}/ejercicios`);
   }

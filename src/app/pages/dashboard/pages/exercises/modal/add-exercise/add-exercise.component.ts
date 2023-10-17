@@ -49,10 +49,20 @@ export class AddExerciseComponent implements OnInit {
   ngOnInit(): void {
     this.getCatalog();
     this.isEdit();
+    this.setData();
   }
 
-  isEdit(): void {
+  isEdit(): boolean {
     if (this.data.data) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  setData(): void {
+    console.log(this.data.data);
+    if (this.isEdit()) {
       this.exerciseForm
         .get('ejercicioName')
         ?.setValue(this.data.data.ejercicioName);
@@ -70,10 +80,9 @@ export class AddExerciseComponent implements OnInit {
     this.exercisesService.getRutinasCatalog().subscribe({
       next: (res: any) => {
         this.catalogExercises = res;
-        if (this.data.data.rutinaName) {
+        if (this.data.data?.rutinaName) {
           res.find((item: any) => {
             if (item.titulo === this.data.data.rutinaName) {
-              console.log(item.id);
               this.exerciseForm.get('rutinaName')?.setValue(item.id);
             }
           });
@@ -94,21 +103,35 @@ export class AddExerciseComponent implements OnInit {
       const descripcion = this.exerciseForm.get('descripcion')?.value;
       const id = this.exerciseForm.get('rutinaName')?.value || '';
       const ejercicio = {
-        ejercicioName: ejercioName || '',
-        series: series || '',
-        repeticiones: repeticiones || '',
-        descripcion: descripcion || '',
+        ejercicioName: ejercioName,
+        series: series,
+        repeticiones: repeticiones,
+        descripcion: descripcion,
       };
 
-      this.exercisesService.postExercise(ejercicio, id).subscribe({
-        next: (res: any) => {
-          this.openSnackBar(res.message);
-          this.dialog.closeAll();
-        },
-        error: (e) => {
-          this.openSnackBar(e.error.message);
-        },
-      });
+      if (this.isEdit()) {
+        this.exercisesService
+          .patchExercise(ejercicio, this.data.data.id)
+          .subscribe({
+            next: (res: any) => {
+              this.openSnackBar(res.message);
+              this.dialog.closeAll();
+            },
+            error: (e) => {
+              this.openSnackBar(e.error.message);
+            },
+          });
+      } else {
+        this.exercisesService.postExercise(ejercicio, id).subscribe({
+          next: (res: any) => {
+            this.openSnackBar(res.message);
+            this.dialog.closeAll();
+          },
+          error: (e) => {
+            this.openSnackBar(e.error.message);
+          },
+        });
+      }
     } else {
       this.exerciseForm.errors;
     }
