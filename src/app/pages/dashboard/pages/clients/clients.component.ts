@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss']
 })
-export class ClientsComponent implements OnInit{
+export class ClientsComponent {
   constructor ( private matDialog: MatDialog){}
 
   displayedColumns: string[] = [
@@ -18,9 +18,7 @@ export class ClientsComponent implements OnInit{
     'tel'
   ];
   dialog: any;
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   createClients(): void {

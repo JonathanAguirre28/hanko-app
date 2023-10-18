@@ -24,7 +24,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [LoadingComponent],
-  imports: [CommonModule, MatPaginatorModule],
+  imports: [CommonModule, MatPaginatorModule, ReactiveFormsModule],
   exports: [
     MatFormFieldModule,
     MatSnackBarModule,
