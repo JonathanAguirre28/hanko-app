@@ -20,10 +20,11 @@ import { LoadingService } from './component/loading/service/loading.service';
 import { LoadingInterceptor } from '../interceptors/loading.interceptor';
 import {NgIf, NgFor} from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [LoadingComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, MatPaginatorModule],
   exports: [
     MatFormFieldModule,
     MatSnackBarModule,

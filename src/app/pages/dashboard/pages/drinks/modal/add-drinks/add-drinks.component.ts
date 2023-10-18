@@ -36,17 +36,64 @@ export class AddDrinksComponent implements OnInit {
     Descripcion: new FormControl('', [Validators.required]),
   });
 
+  // catalogDrinks: any = [];
+
   constructor(
     private drinksService: DrinksService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-  ngOnInit(): void {}
+  ) { }
+  ngOnInit(): void {
+    // this.getCatalog();
+    this.isEdit();
+    this.setData();
+  }
 
   closeModal(): void {
     this.dialog.closeAll();
+  }
+
+  isEdit(): boolean {
+    if (this.data.data) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // getCatalog(): void {
+  //   this.drinksService.getBebidas().subscribe({
+  //     next: (res: any) => {
+  //       this.catalogDrinks = res;
+  //       if (this.data.data?.rutinaName) {
+  //         res.find((item: any) => {
+  //           if (item.titulo === this.data.data.rutinaName) {
+  //             this.drinksService.get('rutinaName')?.setValue(item.id);
+  //           }
+  //         });
+  //       }
+  //     },
+  //   });
+  // }
+
+  setData(): void {
+    if (this.isEdit()) {
+      this.drinksForm
+        .get('BebidaName')
+        ?.setValue(this.data.data.BebidaName);
+      this.drinksForm.get('Tipo')?.setValue(this.data.data.Tipo);
+      this.drinksForm
+        .get('Precio')
+        ?.setValue(this.data.data.Precio);
+      this.drinksForm
+        .get('Stock')
+        ?.setValue(this.data.data.Stock);
+      this.drinksForm
+        .get('Descripcion')
+        ?.setValue(this.data.data.Descripcion);
+    }
   }
 
   onSubmit() {
@@ -64,6 +111,19 @@ export class AddDrinksComponent implements OnInit {
         descripcion: Descripcion || '',
       };
 
+      if (this.isEdit()) {
+        this.drinksService
+          .patchBebidas(bebida, this.data.data.id)
+          .subscribe({
+            next: (res: any) => {
+              this.openSnackBar(res.message);
+              this.dialog.closeAll();
+            },
+            error: (e) => {
+            this.openSnackBar(e.error.message);
+          },
+        });
+    } else {
       this.drinksService.postBebidas(bebida).subscribe({
         next: (res: any) => {
           this.openSnackBar(res.message);
@@ -74,11 +134,14 @@ export class AddDrinksComponent implements OnInit {
           this.openSnackBar(e.error.message);
         },
       });
-    } else {
-      this.drinksForm.errors;
     }
-  }
-  openSnackBar(msj: string) {
-    this._snackBar.open(msj, 'Cerrar', { duration: 2500 });
+  } else {
+  this.drinksForm.errors;
   }
 }
+
+openSnackBar(msj: string) {
+  this._snackBar.open(msj, 'Cerrar', { duration: 2500 });
+}
+}
+

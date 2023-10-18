@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+
+    td {
+        max-height: 25px;
+    }
+}
+
+.user-container {
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .vertical {
+        max-height: 20px;
+        width: 100%;
+    }
+    
+    .userdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .userbutton {
+        border-radius: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        width: 180px;
+        height: 37px;
+        color: white;
+        background-color: #7b1fa2;
+    }
+    
+    .user {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 28px;
+        margin-top: 15px;
+        color: #9029bd;
+    }
+}
