@@ -17,6 +17,7 @@ import { RoutinesComponent } from './pages/routines/routines/routines.component'
 import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
 import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddUsersComponent } from './pages/users/model/add-users/add-users.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AddExerciseComponent,
     DrinksComponent,
     AddDrinksComponent,
+    AddUsersComponent,
   ],
   imports: [
     CommonModule,

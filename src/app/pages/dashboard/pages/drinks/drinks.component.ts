@@ -99,13 +99,13 @@ export class DrinksComponent implements OnInit {
           this.dialogRef.close();
         },
         button2Action: () => {
-          this.fuctionDeleteDrink(data.id)
+          this.functionDeleteDrink(data.id)
         },
       },
     });
   }
 
-  fuctionDeleteDrink(id: string) {
+  functionDeleteDrink(id: string) {
     this.drinksService.deleteDrink(id).subscribe({
       next: (res: any) => {
         this.getBebidas();

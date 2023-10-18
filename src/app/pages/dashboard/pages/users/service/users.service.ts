@@ -6,32 +6,21 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class DrinksService {
+export class UsersService {
   private apiUrl: string = environment.apiUrl;
   @Output() updateTable = new EventEmitter<string>();
 
   constructor(private http: HttpClient) { }
 
-  getBebidas() {
-    return this.http.get(`${this.apiUrl}/bebidas/`);
+  getUsers() {
+    return this.http.get(`${this.apiUrl}/users`);
   }
 
-  postBebidas(bebidas: any) {
+  postUsers(users: any) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${this.apiUrl}/bebidas/`, bebidas, {
+    return this.http.post(`${this.apiUrl}/users`, users, {
       headers,
     });
-  }
-
-  patchBebidas(bebidas: any, id: string) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.patch(`${this.apiUrl}/bebidas/${id}`, bebidas, {
-      headers,
-    });
-  }
-
-  deleteDrink(id: string) {
-    return this.http.delete(`${this.apiUrl}/bebidas/${id}`,);
   }
 
   refreshTable() {
