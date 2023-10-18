@@ -4,39 +4,39 @@
         <form [formGroup]="drinksForm" class="formExercise">
             <mat-form-field>
                 <mat-label>Nombre</mat-label>
-                <input formControlName="BebidaName" type="BebidaName" matInput />
-                <mat-error *ngIf="drinksForm.get('BebidaName')?.hasError('required')">El nombre es
+                <input formControlName="bebidaName" type="bebidaName" matInput />
+                <mat-error *ngIf="drinksForm.get('bebidaName')?.hasError('required')">El nombre es
                     requerido</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Tipo</mat-label>
-                <input formControlName="Tipo" type="Tipo" matInput />
-                <mat-error *ngIf="drinksForm.get('Tipo')?.hasError('required')">Tipo es requerido</mat-error>
+                <input formControlName="tipo" type="tipo" matInput />
+                <mat-error *ngIf="drinksForm.get('tipo')?.hasError('required')">Tipo es requerido</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Precio</mat-label>
-                <input formControlName="Precio" type="Precio" matInput />
-                <mat-error *ngIf="drinksForm.get('Precio')?.hasError('required')">Precio es
+                <input formControlName="precio" type="precio" matInput />
+                <mat-error *ngIf="drinksForm.get('precio')?.hasError('required')">Precio es
                     requerido</mat-error>
-                <mat-error *ngIf="drinksForm.get('Precio')?.hasError('pattern')">El numero no es
+                <mat-error *ngIf="drinksForm.get('precio')?.hasError('pattern')">El numero no es
                     valido</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Stock</mat-label>
-                <input formControlName="Stock" type="Stock" matInput />
-                <mat-error *ngIf="drinksForm.get('Stock')?.hasError('required')">Stock es
+                <input formControlName="stock" type="stock" matInput />
+                <mat-error *ngIf="drinksForm.get('stock')?.hasError('required')">Stock es
                     requerido</mat-error>
-                    <mat-error *ngIf="drinksForm.get('Stock')?.hasError('pattern')">El Stock no es
+                    <mat-error *ngIf="drinksForm.get('stock')?.hasError('pattern')">El Stock no es
                         valido</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Descripcion</mat-label>
-                <input formControlName="Descripcion" type="Descripcion" matInput />
-                <mat-error *ngIf="drinksForm.get('Descripcion')?.hasError('required')">Descripcion es
+                <input formControlName="descripcion" type="descripcion" matInput />
+                <mat-error *ngIf="drinksForm.get('descripcion')?.hasError('required')">Descripcion es
                     requerido</mat-error>
             </mat-form-field>
         </form>

@@ -3,13 +3,11 @@
         <button class="bebida-button" (click)="createDrinks()" mat-raised-button color="primary">
             Agregar bebida
         </button>
-        <h2 class="bebidas">BEBIDAS</h2>
+        <mat-form-field class="filter">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Rutina / Nombre">
+        </mat-form-field>
     </div>
-
-    <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Rutina / Nombre">
-    </mat-form-field>
 
     <div>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

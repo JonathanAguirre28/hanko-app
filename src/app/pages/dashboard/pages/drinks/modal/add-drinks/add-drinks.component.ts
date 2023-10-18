@@ -23,17 +23,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddDrinksComponent implements OnInit {
   drinksForm = new FormGroup({
-    BebidaName: new FormControl('', [Validators.required]),
-    Tipo: new FormControl('', [Validators.required]),
-    Precio: new FormControl('', [
+    bebidaName: new FormControl('', [Validators.required]),
+    tipo: new FormControl('', [Validators.required]),
+    precio: new FormControl('', [
       Validators.required,
       Validators.pattern(/^-?(0|[1-9]\d*)?$/),
     ]),
-    Stock: new FormControl('', [
+    stock: new FormControl('', [
       Validators.required,
       Validators.pattern(/^-?(0|[1-9]\d*)?$/),
     ]),
-    Descripcion: new FormControl('', [Validators.required]),
+    descripcion: new FormControl('', [Validators.required]),
   });
 
   // catalogDrinks: any = [];
@@ -46,7 +46,6 @@ export class AddDrinksComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
   ngOnInit(): void {
-    // this.getCatalog();
     this.isEdit();
     this.setData();
   }
@@ -63,52 +62,37 @@ export class AddDrinksComponent implements OnInit {
     }
   }
 
-  // getCatalog(): void {
-  //   this.drinksService.getBebidas().subscribe({
-  //     next: (res: any) => {
-  //       this.catalogDrinks = res;
-  //       if (this.data.data?.rutinaName) {
-  //         res.find((item: any) => {
-  //           if (item.titulo === this.data.data.rutinaName) {
-  //             this.drinksService.get('rutinaName')?.setValue(item.id);
-  //           }
-  //         });
-  //       }
-  //     },
-  //   });
-  // }
-
   setData(): void {
     if (this.isEdit()) {
       this.drinksForm
-        .get('BebidaName')
-        ?.setValue(this.data.data.BebidaName);
-      this.drinksForm.get('Tipo')?.setValue(this.data.data.Tipo);
+        .get('bebidaName')
+        ?.setValue(this.data.data.bebidaName);
+      this.drinksForm.get('tipo')?.setValue(this.data.data.tipo);
       this.drinksForm
-        .get('Precio')
-        ?.setValue(this.data.data.Precio);
+        .get('precio')
+        ?.setValue(this.data.data.precio);
       this.drinksForm
-        .get('Stock')
-        ?.setValue(this.data.data.Stock);
+        .get('stock')
+        ?.setValue(this.data.data.stock);
       this.drinksForm
-        .get('Descripcion')
-        ?.setValue(this.data.data.Descripcion);
+        .get('descripcion')
+        ?.setValue(this.data.data.descripcion);
     }
   }
 
   onSubmit() {
     if (this.drinksForm.valid) {
-      const BebidaName = this.drinksForm.get('BebidaName')?.value;
-      const Tipo = this.drinksForm.get('Tipo')?.value;
-      const Precio = this.drinksForm.get('Precio')?.value;
-      const Stock = this.drinksForm.get('Stock')?.value;
-      const Descripcion = this.drinksForm.get('Descripcion')?.value || '';
+      const bebidaName = this.drinksForm.get('bebidaName')?.value;
+      const tipo = this.drinksForm.get('tipo')?.value;
+      const precio = this.drinksForm.get('precio')?.value;
+      const stock = this.drinksForm.get('stock')?.value;
+      const descripcion = this.drinksForm.get('descripcion')?.value || '';
       const bebida = {
-        bebidaName: BebidaName || '',
-        tipo: Tipo || '',
-        precio: Precio || '',
-        stock: Stock || '',
-        descripcion: Descripcion || '',
+        bebidaName: bebidaName || '',
+        tipo: tipo || '',
+        precio: precio || '',
+        stock: stock || '',
+        descripcion: descripcion || '',
       };
 
       if (this.isEdit()) {

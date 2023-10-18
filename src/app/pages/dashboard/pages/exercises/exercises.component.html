@@ -3,14 +3,11 @@
     <button class="center-button" (click)="createExercise()" mat-raised-button color="primary">
       Agregar ejercicio
     </button>
-    <h2 class="ejercicios">EJERCICIOS</h2>
+    <mat-form-field class="filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Rutina / Nombre">
+    </mat-form-field>
   </div>
-
-  <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Rutina / Nombre">
-  </mat-form-field>
-
 
   <div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
