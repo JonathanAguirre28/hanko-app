@@ -18,6 +18,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingComponent } from './component/loading/loading.component';
 import { LoadingService } from './component/loading/service/loading.service';
 import { LoadingInterceptor } from '../interceptors/loading.interceptor';
+import {NgIf, NgFor} from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [LoadingComponent],
@@ -36,6 +38,9 @@ import { LoadingInterceptor } from '../interceptors/loading.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NgIf,
+    NgFor,
+    MatSelectModule,
   ],
   providers: [
     {

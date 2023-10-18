@@ -16,6 +16,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { RoutinesComponent } from './pages/routines/routines/routines.component';
 import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-exercise.component';
 import { AddClientsComponent } from './pages/clients/modal/add-clients/add-clients.component';
+import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.component';
 
 
 @NgModule({
@@ -23,12 +24,13 @@ import { AddClientsComponent } from './pages/clients/modal/add-clients/add-clien
     DashboardComponent,
     UsersComponent,
     ClientsComponent,
-    DrinksComponent,
     FinanceComponent,
     ExercisesComponent,
     RoutinesComponent,
     AddExerciseComponent,
     AddClientsComponent,
+    DrinksComponent,
+    AddDrinksComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,11 @@ import { AddClientsComponent } from './pages/clients/modal/add-clients/add-clien
     MatButtonModule,
     DashboardRoutingModule,
   ],
-  exports: [DashboardComponent,ClientsComponent,ExercisesComponent,UsersComponent],
+  exports: [
+    DashboardComponent,
+    ClientsComponent,
+    ExercisesComponent,
+    UsersComponent,
+  ],
 })
 export class DashboardModule {}

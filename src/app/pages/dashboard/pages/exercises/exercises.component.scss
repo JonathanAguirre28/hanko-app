@@ -9,7 +9,6 @@ table {
 .table-container {
   padding-left: 25px;
   padding-right: 25px;
-
 }
 
 .vertical {
@@ -20,6 +19,7 @@ table {
 .button-div {
   display: flex;
   align-items: center;
+  justify-content: center;
   justify-content: space-between;
 }
 
@@ -36,6 +36,20 @@ table {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #9029bd;
+}
+
+.dobleBotton {
+  display: flex;
+  justify-content: space-between;
+  width: 105px;
+}
+
+.edit {
+  margin: 8px 8px 8px 0;
+}
+
+.delete {
+  margin: 8px 8px 8px 0;
 }
 
 @media screen and (max-width: 600px) {

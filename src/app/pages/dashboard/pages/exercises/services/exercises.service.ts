@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { User } from 'src/app/pages/login/interfaces/user';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,29 @@ export class ExercisesService {
 
   constructor(private http: HttpClient) {}
 
-  getRutinas() {
-    return this.http.get(`${this.apiUrl}/rutina`);
+  postExercise(ejercicio: any, id: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(`${this.apiUrl}/ejercicios/${id}`, ejercicio, {
+      headers,
+    });
+  }
+
+  patchExercise(ejercicio: any, id: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.patch(`${this.apiUrl}/ejercicios/${id}`, ejercicio, {
+      headers,
+    });
+  }
+
+  getExcercises() {
+    return this.http.get(`${this.apiUrl}/ejercicios`);
+  }
+
+  getRutinasCatalog() {
+    return this.http.get(`${this.apiUrl}/rutina/catalog`);
+  }
+
+  deleteExercise(id: string) {
+    return this.http.delete(`${this.apiUrl}/ejercicios/${id}`);
   }
 }

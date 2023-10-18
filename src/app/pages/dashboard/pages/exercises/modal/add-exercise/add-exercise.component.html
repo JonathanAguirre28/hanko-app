@@ -1,59 +1,66 @@
 <section class="addExercise">
   <div class="addDiv">
-    <h2 class="exerciseTitle">Crear Ejercicio</h2>
+    <h2 class="exerciseTitle" *ngIf="data.data; else addExercise">
+      Editar ejercicio
+    </h2>
+    <ng-template #addExercise>
+      <h2 class="exerciseTitle">Agregar ejercicio</h2>
+    </ng-template>
     <form [formGroup]="exerciseForm" class="formExercise">
-      <mat-form-field class="inputs">
-        <mat-label>EjercioName</mat-label>
-        <input formControlName="EjercioName" type="EjercioName" matInput />
-        <mat-error *ngIf="exerciseForm.get('EjercioName')?.hasError('required')"
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input formControlName="ejercicioName" matInput />
+        <mat-error *ngIf="exerciseForm.get('ejercioName')?.hasError('required')"
           >El nombre es requerido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Series</mat-label>
-        <input formControlName="Series" type="Series" matInput />
-        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('required')"
+        <input formControlName="series" matInput />
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('required')"
           >Series es requerido</mat-error
         >
-        <mat-error *ngIf="exerciseForm.get('Series')?.hasError('pattern')"
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('pattern')"
           >El numero no es valido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Repeticiones</mat-label>
-        <input formControlName="Repeticiones" type="Repeticiones" matInput />
+        <input formControlName="repeticiones" matInput />
         <mat-error
-          *ngIf="exerciseForm.get('Repeticiones')?.hasError('required')"
+          *ngIf="exerciseForm.get('repeticiones')?.hasError('required')"
           >Repeticiones es requerido</mat-error
         >
-        <mat-error *ngIf="exerciseForm.get('Repeticiones')?.hasError('pattern')"
+        <mat-error *ngIf="exerciseForm.get('repeticiones')?.hasError('pattern')"
           >El numero no es valido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
-        <input formControlName="Descripcion" type="Descripcion" matInput />
-        <mat-error *ngIf="exerciseForm.get('Descripcion')?.hasError('required')"
+        <input formControlName="descripcion" matInput />
+        <mat-error *ngIf="exerciseForm.get('descripcion')?.hasError('required')"
           >Descripcion es requerido</mat-error
         >
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Tipo</mat-label>
-        <input formControlName="Tipo" type="Tipo" matInput />
-        <mat-error *ngIf="exerciseForm.get('Tipo')?.hasError('required')"
-          >Tipo es requerido</mat-error
-        >
+        <mat-label>Rutina</mat-label>
+        <mat-select formControlName="rutinaName">
+          <mat-option
+            *ngFor="let exercise of catalogExercises"
+            [value]="exercise.id"
+            >{{ exercise.titulo }}</mat-option
+          >
+        </mat-select>
       </mat-form-field>
     </form>
 
     <div class="exerciseDivButton">
-      <button [disabled]="exerciseForm.invalid" mat-button color="primary">
-        Ingresar
-      </button>
+      <button class="button" (click)="onSubmit()" mat-button>Guardar</button>
+      <button class="button" mat-button (click)="closeModal()">Cancelar</button>
     </div>
   </div>
 </section>

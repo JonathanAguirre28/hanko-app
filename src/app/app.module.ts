@@ -11,9 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { LoadingService } from './shared/component/loading/service/loading.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],

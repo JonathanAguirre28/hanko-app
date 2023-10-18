@@ -1,0 +1,49 @@
+<section class="addExercise">
+    <div class="addDiv">
+        <h2 class="exerciseTitle">Crear Ejercicio</h2>
+        <form [formGroup]="drinksForm" class="formExercise">
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input formControlName="BebidaName" type="BebidaName" matInput />
+                <mat-error *ngIf="drinksForm.get('BebidaName')?.hasError('required')">El nombre es
+                    requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo</mat-label>
+                <input formControlName="Tipo" type="Tipo" matInput />
+                <mat-error *ngIf="drinksForm.get('Tipo')?.hasError('required')">Tipo es requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Precio</mat-label>
+                <input formControlName="Precio" type="Precio" matInput />
+                <mat-error *ngIf="drinksForm.get('Precio')?.hasError('required')">Precio es
+                    requerido</mat-error>
+                <mat-error *ngIf="drinksForm.get('Precio')?.hasError('pattern')">El numero no es
+                    valido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Stock</mat-label>
+                <input formControlName="Stock" type="Stock" matInput />
+                <mat-error *ngIf="drinksForm.get('Stock')?.hasError('required')">Stock es
+                    requerido</mat-error>
+                    <mat-error *ngIf="drinksForm.get('Stock')?.hasError('pattern')">El Stock no es
+                        valido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Descripcion</mat-label>
+                <input formControlName="Descripcion" type="Descripcion" matInput />
+                <mat-error *ngIf="drinksForm.get('Descripcion')?.hasError('required')">Descripcion es
+                    requerido</mat-error>
+            </mat-form-field>
+        </form>
+
+        <div class="exerciseDivButton">
+            <button class="button" (click)="onSubmit()" mat-button>Guardar</button>
+            <button class="button" mat-button (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</section>

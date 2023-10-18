@@ -2,41 +2,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 78vh;
-  background-color: #000000;
-  min-width: 370px;
-
+  background-color: black;
 
   .addDiv {
-    background-color: #000000;
     padding: 20px;
     border-radius: 5px;
     justify-content: center;
     text-align: center;
-    min-width: 370px;
   }
 
   .exerciseTitle {
     font-size: 24px;
     margin-bottom: 20px;
+    margin-bottom: 70px;
     color: white;
   }
 
   .formExercise {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-  }
 
-  .inputs {
-    width: 60%;
+    mat-form-field {
+      max-width: 300px;
+      color: white !important;
+    }
   }
 
   .exerciseDivButton {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .button {
     color: white;
-    background-color: rgb(217, 219, 217);
-    width: 90%;
+    background-color: #9029bd;
+    width: 110px;
+    height: 50px;
+    margin-top: 30px;
+    border-radius: 7px;
+    cursor: pointer;
   }
 }
