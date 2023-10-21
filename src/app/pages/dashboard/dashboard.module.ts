@@ -18,6 +18,10 @@ import { AddExerciseComponent } from './pages/exercises/modal/add-exercise/add-e
 import { AddDrinksComponent } from './pages/drinks/modal/add-drinks/add-drinks.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddUsersComponent } from './pages/users/model/add-users/add-users.component';
+import { AddClientsComponent } from './pages/clients/modal/add-clients/add-clients.component';
+import { ModalComponent } from './pages/modal/modal/modal.component';
+import { SensorComponent } from './pages/modal/sensor/sensor.component';
+import { LecturaComponent } from './pages/modal/lectura/lectura.component';
 
 
 @NgModule({
@@ -32,6 +36,10 @@ import { AddUsersComponent } from './pages/users/model/add-users/add-users.compo
     DrinksComponent,
     AddDrinksComponent,
     AddUsersComponent,
+    AddClientsComponent,
+    ModalComponent,
+    SensorComponent,
+    LecturaComponent,
   ],
   imports: [
     CommonModule,

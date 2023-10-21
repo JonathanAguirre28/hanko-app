@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class DashboardComponent {
-  constructor(private loginService: LoginService, private router: Router) {}
+  // constructor(private loginService: LoginService, private router: Router) {}
 
-  logout(): void {
-    this.loginService.setLogout();
-    this.router.navigate(['login']);
-  }
+//   logout(): void {
+//     this.loginService.setLogout();
+//     this.router.navigate(['login']);
+//   }
 }

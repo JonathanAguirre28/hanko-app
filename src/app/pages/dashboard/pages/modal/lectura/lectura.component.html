@@ -1,0 +1,34 @@
+<section class="mc-lectura">
+    <div class="mc-lectura-form">
+        <div class="mc-lectura-form-left">
+            <h2 class="mc-lectura-form-left-sensor">Nombre del sensor</h2>
+            <input class="mc-lectura-form-left-input" formControlName="name" matInput placeholder="Sensor T-sensor1" />
+            <span class="mc-lectura-form-left-span" *ngIf="lecturaForm.get('name')?.hasError('required')"></span>
+
+            <h2 class="mc-lectura-form-left-ubicacion">Ubicación</h2>
+            <input class="mc-lectura-form-left-input-height" formControlName="email" matInput
+                placeholder="Galpón N1 pasillo Superior derecho" />
+            <span class="mc-lectura-form-left-span" *ngIf="lecturaForm.get('name')?.hasError('required')"></span>
+        </div>
+
+        <div class="mc-lectura-form-right">
+            <h2 class="mc-lectura-form-right-sensor">Tipo de sensor</h2>
+            <input class="mc-lectura-form-right-input-sensor" formControlName="tipo" matInput
+                placeholder="Temperatura" />
+            <mat-error *ngIf="lecturaForm.get('tipo')?.hasError('tipo')"></mat-error>
+
+            <h2 class="mc-lectura-form-right-marca">Marca</h2>
+            <input class="mc-lectura-form-right-input" formControlName="marca" matInput placeholder="J-Jhonson" />
+            <mat-error *ngIf="lecturaForm.get('marca')?.hasError('marca')"></mat-error>
+
+            <h2 class="mc-lectura-form-right-instalacion">Fecha de instalacion</h2>
+            <input class="mc-lectura-form-right-input" formControlName="instalacion" matInput
+                placeholder="12/03/2021" />
+            <mat-error *ngIf="lecturaForm.get('instalacion')?.hasError('instalacion')"></mat-error>
+
+        </div>
+    </div>
+    <div class="mc-lectura-fotter">
+        <button class="mc-lectura-fotter-button" mat-button>Aceptar</button>
+    </div>
+</section>

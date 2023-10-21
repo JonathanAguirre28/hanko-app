@@ -18,13 +18,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingComponent } from './component/loading/loading.component';
 import { LoadingService } from './component/loading/service/loading.service';
 import { LoadingInterceptor } from '../interceptors/loading.interceptor';
-import {NgIf, NgFor} from '@angular/common';
-import {MatSelectModule} from '@angular/material/select';
+import { NgIf, NgFor } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [LoadingComponent],
-  imports: [CommonModule, MatPaginatorModule],
+  imports: [CommonModule, MatPaginatorModule, MatTabsModule, BrowserAnimationsModule, MatNativeDateModule, FormsModule],
   exports: [
     MatFormFieldModule,
     MatSnackBarModule,
@@ -42,6 +49,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgIf,
     NgFor,
     MatSelectModule,
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [
     {
@@ -56,4 +68,4 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     },
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

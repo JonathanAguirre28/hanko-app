@@ -1,0 +1,54 @@
+<section class="mc-sensor">
+    <div class="mc-sensor-form">
+        <div class="mc-sensor-form-left">
+            <h2 class="mc-sensor-form-left-fecha">Buscar por fecha</h2>
+            <mat-form-field class="mc-sensor-form-left-picker">
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="mc-sensor-form-right">
+            <h2 class="mc-sensor-form-right-hora">Hora de inicio</h2>
+            <input class="mc-sensor-form-right-time" formControlName="email" matInput placeholder="Home" />
+            <h2 class="mc-sensor-form-right-a">a</h2>
+            <input class="mc-sensor-form-right-last" formControlName="email" matInput placeholder="Home" />
+        </div>
+    </div>
+    <div class="mc-sensor-table">
+        <h2 class="mc-sensor-table-lecturas">Lecturas</h2>
+        <div class="mc-sensor-table-container">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="position">
+                    <th class="mc-sensor-table-container-title" mat-header-cell *matHeaderCellDef>Position</th>
+                    <td mat-cell *matCellDef="let element">{{element.position}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th class="mc-sensor-table-container-title" mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="weight">
+                    <th class="mc-sensor-table-container-title" mat-header-cell *matHeaderCellDef>Weight</th>
+                    <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="symbol">
+                    <th class="mc-sensor-table-container-title" mat-header-cell *matHeaderCellDef>Symbol</th>
+                    <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+
+    </div>
+    <div class="mc-sensor-fotter">
+        <button class="mc-sensor-fotter-button">Aceptar</button>
+    </div>
+</section>

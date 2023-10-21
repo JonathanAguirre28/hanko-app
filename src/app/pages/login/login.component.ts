@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalComponent } from '../dashboard/pages/modal/modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -26,28 +28,37 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) {}
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      const email = this.loginForm.get('email')?.value;
-      const password = this.loginForm.get('password')?.value;
-      const user = {
-        email: email || '',
-        password: password || '',
-      };
 
-      this.loginService.postLogin(user).subscribe({
-        next: () => {
-          this.loginService.setLoggedIn(true);
-          this.router.navigate(['dashboard']);
-        },
-        error: (e) => {
-          this.openSnackBar(e.error.message);
-        },
-      });
-    }
+        const dialog = this.dialog.open(ModalComponent, {
+      data: {
+        closeModal: () => this.dialog.closeAll(),
+      },
+    });
+
+
+    // if (this.loginForm.valid) {
+    //   const email = this.loginForm.get('email')?.value;
+    //   const password = this.loginForm.get('password')?.value;
+    //   const user = {
+    //     email: email || '',
+    //     password: password || '',
+    //   };
+
+    //   this.loginService.postLogin(user).subscribe({
+    //     next: () => {
+    //       this.loginService.setLoggedIn(true);
+    //       this.router.navigate(['dashboard']);
+    //     },
+    //     error: (e) => {
+    //       this.openSnackBar(e.error.message);
+    //     },
+    //   });
+    // }
   }
 
   openSnackBar(msj: string) {

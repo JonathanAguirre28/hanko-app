@@ -1,0 +1,124 @@
+.mc-lectura {
+
+    &-form {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        &-left {
+            padding-left: 30px;
+            margin-top: 30px;
+
+            &-sensor {
+                color: #b8b3b3;
+            }
+
+            &-input {
+                width: 430px;
+                height: 28px;
+                padding: 10px;
+                font-size: 16px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                margin-top: 10px;
+            }
+
+            &-span {
+                color: red;
+                font-size: 14px;
+            }
+
+            &-ubicacion {
+                color: #ccc;
+                margin-top: 14px;
+            }
+
+            &-input-height {
+                width: 430px;
+                height: 140px;
+                padding: 10px;
+                font-size: 16px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                margin-top: 13px;
+            }
+        }
+
+        &-right {
+            margin-top: 30px;
+            margin-right: 100px;
+            height: 100%;
+
+
+            &-sensor {
+                color: #ccc;
+            }
+
+            &-input-sensor {
+                width: 430px;
+                height: 28px;
+                padding: 10px;
+                font-size: 16px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                margin-top: 10px;
+            }
+
+            &-input {
+                width: 430px;
+                height: 28px;
+                padding: 10px;
+                font-size: 16px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                margin-top: 13px;
+            }
+
+            &-marca {
+                margin-top: 40px;
+                color: #ccc;
+            }
+
+            &-instalacion {
+                margin-top: 22px;
+                color: #ccc;
+            }
+        }
+    }
+
+    &-fotter {
+        display: flex;
+        justify-content: end;
+        height: 95px;
+        width: 100%;
+
+        &-button {
+            border-radius: 15px;
+            margin-right: 34px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            background-color: rgb(24, 117, 117);
+            width: 200px;
+            color: white;
+        }
+    }
+}
+
+// ------------- FOOTER BUTTON ------------- 
+
+.mat-mdc-button.mat-mdc-button-base, .mat-mdc-raised-button.mat-mdc-button-base, .mat-mdc-unelevated-button.mat-mdc-button-base, .mat-mdc-outlined-button.mat-mdc-button-base {
+    height: 50px;
+}
+
+.mat-h2, .mat-headline-6, .mat-typography .mat-h2, .mat-typography .mat-headline-6, .mat-typography h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    margin: 0; 
+}

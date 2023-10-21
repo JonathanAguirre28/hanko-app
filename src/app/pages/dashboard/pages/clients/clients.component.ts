@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { AddClientsComponent } from './modal/add-clients/add-clients.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-clients',
@@ -6,5 +9,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent {
+  constructor ( private matDialog: MatDialog){}
 
+  displayedColumns: string[] = [
+    'position', 
+    'name', 
+    'surname', 
+    'tel'
+  ];
+  dialog: any;
+
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  createClients(): void {
+    this.matDialog.open(AddClientsComponent);
+  }
+  
 }
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Jonathan', surname: 'Aguirre', tel: 1100546598},
+  {position: 2, name: 'Felipe', surname: 'Ramos', tel: 1100546598},
+  {position: 3, name: 'Gustavo', surname: 'Ramos', tel: 1100546598},
+
+];
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  surname: string;
+  tel: number;
+}
+
+

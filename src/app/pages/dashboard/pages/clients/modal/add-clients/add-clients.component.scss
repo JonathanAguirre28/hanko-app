@@ -1,0 +1,61 @@
+.addClients {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+    &__Div {
+        padding: 20px;
+        border-radius: 5px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__matForm {
+        display: flex;
+        flex-direction: column;
+
+        &-content {
+            max-width: 300px;
+            color: white !important;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 40px;
+        background-color: #000000;
+        color: white;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        &-content {
+            color: white;
+            background-color: #9029bd;
+            width: 110px;
+            height: 50px;
+            margin-top: 30px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+    }
+}
