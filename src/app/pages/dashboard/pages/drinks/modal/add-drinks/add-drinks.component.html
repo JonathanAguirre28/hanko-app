@@ -1,7 +1,7 @@
-<section class="addExercise">
-    <div class="addDiv">
-        <h2 class="exerciseTitle">Crear Ejercicio</h2>
-        <form [formGroup]="drinksForm" class="formExercise">
+<section class="hk-dashboard-pages-bebidas-add">
+    <div class="hk-dashboard-pages-bebidas-add-container">
+        <h2 class="hk-dashboard-pages-bebidas-add-container-title">Crear Ejercicio</h2>
+        <form [formGroup]="drinksForm" class="hk-dashboard-pages-bebidas-add-container-form">
             <mat-form-field>
                 <mat-label>Nombre</mat-label>
                 <input formControlName="BebidaName" type="BebidaName" matInput />
@@ -29,8 +29,8 @@
                 <input formControlName="Stock" type="Stock" matInput />
                 <mat-error *ngIf="drinksForm.get('Stock')?.hasError('required')">Stock es
                     requerido</mat-error>
-                    <mat-error *ngIf="drinksForm.get('Stock')?.hasError('pattern')">El Stock no es
-                        valido</mat-error>
+                <mat-error *ngIf="drinksForm.get('Stock')?.hasError('pattern')">El Stock no es
+                    valido</mat-error>
             </mat-form-field>
 
             <mat-form-field>
@@ -41,9 +41,11 @@
             </mat-form-field>
         </form>
 
-        <div class="exerciseDivButton">
-            <button class="button" (click)="onSubmit()" mat-button>Guardar</button>
-            <button class="button" mat-button (click)="closeModal()">Cancelar</button>
+        <div class="hk-dashboard-pages-bebidas-add-container-fotter">
+            <button class="hk-dashboard-pages-bebidas-add-container-fotter-button" (click)="onSubmit()"
+                mat-button>Guardar</button>
+            <button class="hk-dashboard-pages-bebidas-add-container-fotter-button" mat-button
+                (click)="closeModal()">Cancelar</button>
         </div>
     </div>
 </section>

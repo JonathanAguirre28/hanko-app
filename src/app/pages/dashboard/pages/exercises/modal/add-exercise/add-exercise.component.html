@@ -1,66 +1,49 @@
-<section class="addExercise">
-  <div class="addDiv">
-    <h2 class="exerciseTitle" *ngIf="data.data; else addExercise">
+<section class="hk-dashboard-pages-ejercicios-add">
+  <div class="hk-dashboard-pages-ejercicios-add-container">
+    <h2 class="hk-dashboard-pages-ejercicios-add-container-title" *ngIf="data.data; else addExercise">
       Editar ejercicio
     </h2>
     <ng-template #addExercise>
-      <h2 class="exerciseTitle">Agregar ejercicio</h2>
+      <h2 class="hk-dashboard-pages-ejercicios-add-container-title">Agregar ejercicio</h2>
     </ng-template>
-    <form [formGroup]="exerciseForm" class="formExercise">
+    <form [formGroup]="exerciseForm" class="hk-dashboard-pages-ejercicios-add-container-form">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
         <input formControlName="ejercicioName" matInput />
-        <mat-error *ngIf="exerciseForm.get('ejercioName')?.hasError('required')"
-          >El nombre es requerido</mat-error
-        >
+        <mat-error *ngIf="exerciseForm.get('ejercioName')?.hasError('required')">El nombre es requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Series</mat-label>
         <input formControlName="series" matInput />
-        <mat-error *ngIf="exerciseForm.get('series')?.hasError('required')"
-          >Series es requerido</mat-error
-        >
-        <mat-error *ngIf="exerciseForm.get('series')?.hasError('pattern')"
-          >El numero no es valido</mat-error
-        >
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('required')">Series es requerido</mat-error>
+        <mat-error *ngIf="exerciseForm.get('series')?.hasError('pattern')">El numero no es valido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Repeticiones</mat-label>
         <input formControlName="repeticiones" matInput />
-        <mat-error
-          *ngIf="exerciseForm.get('repeticiones')?.hasError('required')"
-          >Repeticiones es requerido</mat-error
-        >
-        <mat-error *ngIf="exerciseForm.get('repeticiones')?.hasError('pattern')"
-          >El numero no es valido</mat-error
-        >
+        <mat-error *ngIf="exerciseForm.get('repeticiones')?.hasError('required')">Repeticiones es requerido</mat-error>
+        <mat-error *ngIf="exerciseForm.get('repeticiones')?.hasError('pattern')">El numero no es valido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
         <input formControlName="descripcion" matInput />
-        <mat-error *ngIf="exerciseForm.get('descripcion')?.hasError('required')"
-          >Descripcion es requerido</mat-error
-        >
+        <mat-error *ngIf="exerciseForm.get('descripcion')?.hasError('required')">Descripcion es requerido</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Rutina</mat-label>
         <mat-select formControlName="rutinaName">
-          <mat-option
-            *ngFor="let exercise of catalogExercises"
-            [value]="exercise.id"
-            >{{ exercise.titulo }}</mat-option
-          >
+          <mat-option *ngFor="let exercise of catalogExercises" [value]="exercise.id">{{ exercise.titulo }}</mat-option>
         </mat-select>
       </mat-form-field>
     </form>
 
-    <div class="exerciseDivButton">
-      <button class="button" (click)="onSubmit()" mat-button>Guardar</button>
-      <button class="button" mat-button (click)="closeModal()">Cancelar</button>
+    <div class="hk-dashboard-pages-ejercicios-add-container-fotter">
+      <button class="hk-dashboard-pages-ejercicios-add-container-fotter-button" (click)="onSubmit()" mat-button>Guardar</button>
+      <button class="hk-dashboard-pages-ejercicios-add-container-fotter-button" mat-button (click)="closeModal()">Cancelar</button>
     </div>
   </div>
 </section>

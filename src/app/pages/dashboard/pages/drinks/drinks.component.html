@@ -1,9 +1,10 @@
-<section class="bebida-container">
-    <div class="bebida-div">
-        <button class="bebida-button" (click)="createDrinks()" mat-raised-button color="primary">
+<section class="hk-dashboard-pages-bebidas">
+    <div class="hk-dashboard-pages-bebidas-header">
+        <button class="hk-dashboard-pages-bebidas-header-button" (click)="createDrinks()" mat-raised-button
+            color="primary">
             Agregar bebida
         </button>
-        <h2 class="bebidas">BEBIDAS</h2>
+        <h2 class="hk-dashboard-pages-bebidas-header-title">BEBIDAS</h2>
     </div>
 
     <mat-form-field>
@@ -11,8 +12,8 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Rutina / Nombre">
     </mat-form-field>
 
-    <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="hk-dashboard-pages-bebidas-container">
+        <table mat-table [dataSource]="dataSource" class="hk-dashboard-pages-bebidas-container-table">
             <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef> Nombre </th>
                 <td mat-cell *matCellDef="let element"> {{element.bebidaName}} </td>
@@ -42,12 +43,12 @@
             <ng-container matColumnDef="deleteEdit">
                 <th mat-header-cell *matHeaderCellDef>Eliminar / Editar</th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"
-                        class="delete" (click)="deleteDrink(element)">
+                    <button style="margin: 8px 8px 8px 0" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="deleteDrink(element)">
                         <mat-icon>close</mat-icon>
                     </button>
-                    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"
-                        class="edit" (click)="editDrink(element)">
+                    <button style="margin: 8px 8px 8px 0" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"
+                        (click)="editDrink(element)">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </td>

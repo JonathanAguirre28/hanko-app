@@ -1,50 +1,28 @@
-table {
-    width: 100%;
+.hk-dashboard-pages-bebidas {
+    padding: 0 30px;
 
-    td {
-        max-height: 25px;
-    }
-}
-
-.bebida-container {
-    padding-left: 25px;
-    padding-right: 25px;
-
-    .vertical {
-        max-height: 20px;
-        width: 100%;
-    }
-    
-    .bebida-div {
+    &-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    
-    .bebida-button {
-        border-radius: 14px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        width: 180px;
-        height: 37px;
-        color: white;
-        background-color: #7b1fa2;
-    }
-    
-    .bebidas {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 26px;
-        margin-top: 15px;
-        color: #9029bd;
-    }
 
-    .edit {
-        margin: 8px 8px 8px 0;
-    }
-    
-    .delete {
-        margin: 8px 8px 8px 0;
+        &-button {
+            border-radius: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            width: 180px;
+            height: 37px;
+            color: white;
+            background-color: #7b1fa2;
+        }
+
+        &-title {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 26px;
+            margin-top: 15px;
+            color: #9029bd;
+        }
     }
 }

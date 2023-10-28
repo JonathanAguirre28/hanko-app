@@ -36,8 +36,6 @@ export class AddDrinksComponent implements OnInit {
     Descripcion: new FormControl('', [Validators.required]),
   });
 
-  // catalogDrinks: any = [];
-
   constructor(
     private drinksService: DrinksService,
     public dialog: MatDialog,
@@ -46,7 +44,6 @@ export class AddDrinksComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
   ngOnInit(): void {
-    // this.getCatalog();
     this.isEdit();
     this.setData();
   }
@@ -62,21 +59,6 @@ export class AddDrinksComponent implements OnInit {
       return false;
     }
   }
-
-  // getCatalog(): void {
-  //   this.drinksService.getBebidas().subscribe({
-  //     next: (res: any) => {
-  //       this.catalogDrinks = res;
-  //       if (this.data.data?.rutinaName) {
-  //         res.find((item: any) => {
-  //           if (item.titulo === this.data.data.rutinaName) {
-  //             this.drinksService.get('rutinaName')?.setValue(item.id);
-  //           }
-  //         });
-  //       }
-  //     },
-  //   });
-  // }
 
   setData(): void {
     if (this.isEdit()) {

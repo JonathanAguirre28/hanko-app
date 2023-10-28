@@ -1,49 +1,80 @@
-<section mat-dialog-content class="addClients">
-  <div class="addClients__Div">
-    <h2 class="addClients__title">Crear Clientes</h2>
-    <form [formGroup]="clientsForm" action="" class="addClients__form">
-      <div class="addClients__matForm">
-        <mat-form-field appearance="outline">
-          <mat-label>Nombre</mat-label>
-          <input formControlName="name" type="text" name="name" class="addClients__input">
-          <mat-error *ngIf="clientsForm.controls.name.invalid && clientsForm.controls.name.hasError('required')">
-            El nombre es requerido
-          </mat-error>
-        </mat-form-field>
-      </div>
+<section class="hk-dashboard-pages-clients-add">
+    <div class="hk-dashboard-pages-clients-add-container">
+        <h2 class="hk-dashboard-pages-clients-add-container-title">
+            Crear cliente
+        </h2>
+        <form [formGroup]="clientForm" class="hk-dashboard-pages-clients-add-container-form">
+            <!-- <mat-form-field class="hk-dashboard-pages-clients-add-container-form-field">
+                <mat-label>Active</mat-label>
+                <input formControlName="Active" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('Active')?.hasError('required')">El nombre es
+                    requerido</mat-error>
+            </mat-form-field> -->
 
+            <mat-form-field>
+                <mat-label>Mensualidad paga</mat-label>
+                <mat-select formControlName="Active" >
+                    <mat-option value="true">Si</mat-option>
+                    <mat-option value="false">No</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-      <div class="addClients__matForm">
-        <mat-form-field class="addClients__matForm-content" appearance="outline">
-          <mat-label>Apellido</mat-label>
-          <input formControlName="surname" matInput type="text" name="surname" class="addClients__input">
-          <mat-error *ngIf="clientsForm.controls.surname.invalid && clientsForm.controls.surname.hasError('required')">
-            El apellido es requerido
-          </mat-error>
-        </mat-form-field>
-      </div>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input formControlName="FullName" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('FullName')?.hasError('required')">Tipo es requerido</mat-error>
+            </mat-form-field>
 
+            <mat-form-field>
+                <mat-label>Edad</mat-label>
+                <input formControlName="Age" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('Age')?.hasError('required')">Precio es requerido</mat-error>
+                <mat-error *ngIf="clientForm.get('Age')?.hasError('pattern')">El numero no es valido</mat-error>
+            </mat-form-field>
 
-      <div class="addClients__matForm">
-        <mat-form-field appearance="outline">
-          <mat-label>Telefono</mat-label>
-          <input formControlName="number" matInput type="number" name="number" class="addClients__input">
-          <mat-error *ngIf="clientsForm.controls.number.invalid && clientsForm.controls.number.hasError('required')">
-            El telefono es requerido
-          </mat-error>
-        </mat-form-field>
-      </div>
-     
+            <mat-form-field>
+                <mat-label>Fecha de cumpleaños</mat-label>
+                <input formControlName="DateOfBirth" matInput [matDatepicker]="picker" />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-    </form>
-    </div>
+            <mat-form-field>
+                <mat-label>Fecha de inscripcion</mat-label>
+                <input formControlName="DateOfInscription" matInput [matDatepicker]="DateOfInscription" />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="DateOfInscription"></mat-datepicker-toggle>
+                <mat-datepicker #DateOfInscription></mat-datepicker>
+            </mat-form-field>
 
-    <div class="addClients__button">
-      <button mat-button color="primary" class="addClients__button-content">
-        Guardar
-      </button>
-      <button mat-button color="primary" class="addClients__button-content">
-        Cancelar
-      </button>
+            <mat-form-field>
+                <mat-label>Telefono</mat-label>
+                <input formControlName="Phone" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('Phone')?.hasError('required')">Descripcion es requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Numero de emergencias</mat-label>
+                <input formControlName="EmergencyNumber" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('EmergencyNumber')?.hasError('required')">Descripcion es
+                    requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="Email" type="text" matInput />
+                <mat-error *ngIf="clientForm.get('Email')?.hasError('required')">Descripcion es requerido</mat-error>
+            </mat-form-field>
+        </form>
+
+        <div class="hk-dashboard-pages-clients-add-container-button">
+            <button class="hk-dashboard-pages-clients-add-container-button-fotter" (click)="onSubmit()" mat-button>
+                Guardar
+            </button>
+            <button class="hk-dashboard-pages-clients-add-container-button-fotter" mat-button (click)="closeModal()">
+                Cancelar
+            </button>
+        </div>
     </div>
 </section>

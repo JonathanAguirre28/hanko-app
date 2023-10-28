@@ -1,37 +1,84 @@
-<section class="clients">
-    <div class="clients__title">
-        <button class="clients__button" mat-raised-button color="primary" (click)="createClients()">Agregar clientes</button>
-        <h2 class="clients__text">CLIENTES</h2>
-    </div>
-    <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 clients__table">
-          
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef> Cliente </th>
-              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Nombre </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="surname">
-              <th mat-header-cell *matHeaderCellDef> Apellido </th>
-              <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="tel">
-              <th mat-header-cell *matHeaderCellDef> Telefono </th>
-              <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-    </div>
+<section class="hk-dashboard-pages-clients">
+  <div class="hk-dashboard-pages-clients-title">
+    <button class="hk-dashboard-pages-clients-title-button" mat-raised-button color="primary" (click)="createClients()">
+      Agregar clientes
+    </button>
+    <h2 class="hk-dashboard-pages-clients-title-text">CLIENTES</h2>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Nombre">
+  </mat-form-field>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 clients__table">
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef>Activo</th>
+        <td mat-cell *matCellDef="let element">{{ element.active }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef>Nombre completo</th>
+        <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>Edad</th>
+        <td mat-cell *matCellDef="let element">{{ element.age }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef>Fecha de cumpleaños</th>
+        <td mat-cell *matCellDef="let element">{{ element.dateOfBirth }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateOfInscription">
+        <th mat-header-cell *matHeaderCellDef>Fecha de inscripcion</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.dateOfInscription }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Telefono</th>
+        <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="emergencyNumber">
+        <th mat-header-cell *matHeaderCellDef>Numero de emergencia</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.emergencyNumber }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nextDueDate">
+        <th mat-header-cell *matHeaderCellDef>Fecha de vencimiento</th>
+        <td mat-cell *matCellDef="let element">{{ element.nextDueDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="deleteEdit">
+        <th mat-header-cell *matHeaderCellDef>Eliminar / Editar</th>
+        <td mat-cell *matCellDef="let element">
+          <button style="margin: 8px 8px 8px 0" mat-mini-fab color="primary"
+            aria-label="Example icon button with a delete icon" class="delete" (click)="deleteClients(element)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <button style="margin: 8px 8px 8px 0" mat-mini-fab color="accent"
+            aria-label="Example icon button with a plus one icon" class="edit" (click)="editClients(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5,10,25]" showFirstLastButtons></mat-paginator>
 </section>
