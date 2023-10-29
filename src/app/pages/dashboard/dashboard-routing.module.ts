@@ -6,10 +6,15 @@ import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FinanceComponent } from './pages/finance/finance.component';
 import { ExercisesComponent } from './pages/exercises/exercises.component';
 import { RoutinesComponent } from './pages/routines/routines/routines.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
       {
         path: 'usuarios',
         component: UsersComponent,
@@ -33,6 +38,10 @@ import { RoutinesComponent } from './pages/routines/routines/routines.component'
       {
         path: 'rutinas',
         component: RoutinesComponent,
+      },
+      {
+        path: '**',
+        component: HomeComponent,
       },
     ]),
   ],
