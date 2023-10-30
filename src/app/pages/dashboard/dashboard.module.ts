@@ -25,6 +25,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgChartsModule } from 'ng2-charts';
 import { HomeComponent } from './pages/home/home.component';
+import { CardComponent } from 'src/app/shared/component/card/card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatCard } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +44,7 @@ import { HomeComponent } from './pages/home/home.component';
     AddDrinksComponent,
     AddUsersComponent,
     HomeComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -56,12 +61,14 @@ import { HomeComponent } from './pages/home/home.component';
     MatFormFieldModule,
     MatNativeDateModule,
     NgChartsModule,
+    MatCardModule
   ],
   exports: [
     DashboardComponent,
     ClientsComponent,
     ExercisesComponent,
     UsersComponent,
+    MatCard
   ],
 })
 export class DashboardModule { }

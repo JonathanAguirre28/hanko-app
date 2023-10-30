@@ -3,9 +3,12 @@
         <div class="hk-dashboard-pages-home-container-header">
             <h2 class="hk-dashboard-pages-home-container-header-title">Home info</h2>
         </div>
-        <div class="hk-dashboard-pages-home-container-tabla">
-            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels">
-            </canvas>
+        <div class="hk-dashboard-pages-home-container-info">
+            <app-card class="hk-dashboard-pages-home-container-info-card"></app-card>
+            <div class="hk-dashboard-pages-home-container-info-tabla">
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels">
+                </canvas>
+            </div>
         </div>
     </div>
 </section>

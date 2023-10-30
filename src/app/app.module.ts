@@ -24,7 +24,7 @@ import { DashboardModule } from './pages/dashboard/dashboard.module';
     MatButtonModule,
     MatToolbarModule,
     SharedModule,
-    DashboardModule,
+    DashboardModule
   ],
   bootstrap: [AppComponent],
 })

@@ -2,35 +2,60 @@
 $dark-bg-color: #333;
 $chart-container-bg-color: #444;
 
-// Estilo para centrar el gráfico y aplicar fondos oscuros
 .hk-dashboard-pages-home {
-    background-color: $dark-bg-color; // Establecer un fondo oscuro para el fondo de toda la sección
+    background-color: $dark-bg-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 94.4vh;
+    background-image: linear-gradient(to top, #c9bdc9, #b6a3c3, #9a8dc0, #707abf, #1e6bbe);
 
     &-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 94.4vh;
-        background-image: linear-gradient(to top, #c9bdc9, #b6a3c3, #9a8dc0, #707abf, #1e6bbe);
+        justify-content: center;
+        width: 100%;
+        margin-top: 70px;
 
         &-header {
-            display: flex;
-            justify-content: center;
-            width: 100%;
             height: 50px;
-            margin-top: 70px;
 
             &-title {
                 font-size: 44px;
                 font-weight: 800;
-                color: #333;
+                color: $dark-bg-color;
             }
         }
 
-        &-tabla {
-            margin-top: 80px;
-            width: 700px;
-            height: 400px;
+        &-info {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+
+            &-card{
+                width: 50%;
+                padding-left: 150px;
+            }
+
+            &-tabla {
+                width: 50%;
+                margin: 120px 2.5% 0;
+                padding: 0 100px;
+                height: 400px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hk-dashboard-pages-home{
+
+            &-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
     }
 }
